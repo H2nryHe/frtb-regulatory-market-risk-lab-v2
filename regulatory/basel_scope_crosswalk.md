@@ -1,9 +1,8 @@
 # Basel Scope Crosswalk
 
 Scope document for the current phase gate. It records completed source
-governance, Phase 1 taxonomy/mapping work, and selected Phase 2 raw/weighted
-sensitivity preparation before any SBM aggregation or capital formula is
-implemented.
+governance, Phase 1 taxonomy/mapping work, selected Phase 2 raw/weighted
+sensitivity preparation, and selected Phase 3 SBM aggregation.
 
 | Basel chapter / paragraph area | Concept | Planned project phase | Implementation scope | Explicitly omitted scope | Source ID |
 | --- | --- | --- | --- | --- | --- |
@@ -26,6 +25,11 @@ implemented.
 | MAR21.14, MAR21.24, MAR21.86-MAR21.88 | FX delta and base weighting | Phase 2 | Implemented selected EUR/USD raw delta sensitivities and weighted sensitivities using USD reporting currency and base FX risk weight | Base-currency approach, discretionary specified-currency-pair reduction, aggregation and SBM capital | BIS_MAR21 |
 | MAR21.12, MAR21.14, MAR21.25, MAR21.28, MAR21.90-MAR21.92 | Equity and FX vega | Phase 2 | Implemented selected option-level regulatory vega transformation and weighted sensitivities for `SYN_EQ_CALL` and `SYN_EURUSD_CALL` | Vega aggregation, correlations and vega capital | BIS_MAR21 |
 | MAR21.96-MAR21.101 | Curvature preparation | Phase 2 | Frozen selected provenance only; curvature remains verified not implemented | CVR, curvature bucket capital, cross-bucket curvature aggregation and scenario capital | BIS_MAR21 |
+| MAR21.1-MAR21.7 | Selected SBM aggregation and scenario selection | Phase 3 | Implemented selected-scope LOW/MEDIUM/HIGH SBM capital as the sum of selected delta, vega and curvature capital across implemented risk classes | Complete seven-risk-class SBM and bank-wide regulatory capital reporting | BIS_MAR21 |
+| MAR21.4; MAR21.41-MAR21.50; MAR21.72-MAR21.80; MAR21.86-MAR21.89 | Selected delta aggregation | Phase 3 | Implemented net-before-weighting, within-bucket aggregation, across-bucket aggregation and selected correlation scenarios for GIRR, Equity and FX delta | CSR, commodity, securitisation and CTP SBM delta coverage | BIS_MAR21 |
+| MAR21.4; MAR21.90-MAR21.95 | Selected vega aggregation | Phase 3 | Implemented selected Equity and FX vega aggregation with maturity correlation treatment and scenario transforms | Complete vega universe across all risk classes | BIS_MAR21 |
+| MAR21.5; MAR21.96-MAR21.101 | Selected curvature | Phase 3 | Implemented selected full-revaluation curvature for `SYN_EQ_CALL` and `SYN_EURUSD_CALL`, including delta removal and squared-delta correlation treatment | Barrier option curvature and complete curvature coverage | BIS_MAR21 |
+| MAR21.6 | Correlation scenarios | Phase 3 | Implemented LOW, MEDIUM and HIGH transforms for selected rho and gamma parameters, including high cap and low transform branch behavior | Scenario coverage for risk classes outside selected numerical scope | BIS_MAR21 |
 
 Explicit out-of-scope items for this project version: securitisation DRC, CTP,
 full seven-risk-class SBM, full NMRF SES capital engine, full bank-wide IMCC

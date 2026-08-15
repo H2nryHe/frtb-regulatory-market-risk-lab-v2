@@ -8,8 +8,8 @@ metadata:
   selected_scope_only: true
   notes: >
     Selected Basel MAR21 parameters required for Phase 2 raw and weighted
-    sensitivities. No bucket aggregation, correlation scenarios or capital
-    calculation is configured here.
+    sensitivities and Phase 3 selected-scope SBM aggregation. This does not
+    configure DRC, RRAO or IMA.
 
 conventions:
   reporting_currency: USD
@@ -18,6 +18,11 @@ conventions:
   fx_delta_shock_relative: 0.01
   volatility_bump_absolute_for_model_vega: 0.0001
   weighted_sensitivity_formula: raw_sensitivity * risk_weight_decimal
+  within_bucket_formula: sqrt(max(sum_i sum_j rho_ij * WS_i * WS_j, 0))
+  across_bucket_formula: sqrt(sum_b K_b^2 + sum_b sum_c_not_b gamma_bc * S_b * S_c)
+  across_bucket_alternative_s: max(min(sum_weighted_sensitivity, K_b), -K_b)
+  high_correlation_transform: min(1.25 * correlation, 1.0)
+  low_correlation_transform: max(2.0 * correlation - 1.0, 0.75 * correlation)
 
 girr:
   source_paragraphs: [MAR21.8, MAR21.19, MAR21.41, MAR21.42]
@@ -36,6 +41,13 @@ girr:
   selected_tenors_years: [5.0]
   bucket_rule: currency
   specified_currency_reduction_used: false
+  correlations:
+    source_paragraphs: [MAR21.45, MAR21.46, MAR21.47, MAR21.50]
+    same_tenor_different_curves: 0.999
+    cross_currency_gamma: 0.50
+    selected_same_curve:
+      "1.0|5.0": 0.887
+      "5.0|10.0": 0.970
 
 equity:
   source_paragraphs: [MAR21.12, MAR21.21, MAR21.31, MAR21.33, MAR21.72, MAR21.77]
@@ -48,7 +60,13 @@ equity:
       large-cap advanced-economy constituents for selected educational mapping.
   delta_spot_risk_weight: 0.15
   repo_rate_sensitivity_implemented: false
-  repo_rate_limitation: Repo-rate sensitivity is excluded from selected Phase 2 scope.
+  repo_rate_limitation: Repo-rate field is not consumed by Phase 2/3 pricing functions.
+  correlations:
+    source_paragraphs: [MAR21.78, MAR21.80]
+    bucket_12_index_within_bucket: 0.80
+    bucket_13_index_within_bucket: 0.80
+    bucket_12_13_cross_bucket_gamma: 0.75
+    other_cross_bucket_gamma: 0.45
 
 fx:
   source_paragraphs: [MAR21.14, MAR21.24, MAR21.86, MAR21.87, MAR21.88]
@@ -57,6 +75,9 @@ fx:
   eurusd_quote: USD per EUR
   delta_risk_weight: 0.15
   specified_currency_pair_reduction_used: false
+  correlations:
+    source_paragraphs: [MAR21.89]
+    cross_bucket_gamma: 0.60
 
 vega:
   source_paragraphs: [MAR21.12, MAR21.14, MAR21.25, MAR21.28, MAR21.38, MAR21.90, MAR21.91, MAR21.92]
@@ -68,8 +89,15 @@ vega:
   fx:
     liquidity_horizon_days: 40
     risk_weight: 1.0
+  correlations:
+    source_paragraphs: [MAR21.93, MAR21.94, MAR21.95]
+    alpha: 0.01
+    option_maturity_formula: exp(-alpha * abs(Tk - Tl) / min(Tk, Tl))
 
 curvature:
   source_paragraphs: [MAR21.96, MAR21.98, MAR21.99]
-  status: VERIFIED_NOT_IMPLEMENTED
-  notes: Curvature provenance is retained for future phases; no curvature risk position or capital is calculated in Phase 2.
+  status: IMPLEMENTED_SELECTED_SCOPE
+  shock_source: corresponding_delta_risk_weight
+  correlation_transform: square_corresponding_delta_correlation
+  source_paragraphs_correlations: [MAR21.100, MAR21.101]
+  notes: Selected Equity and FX vanilla option curvature is implemented in Phase 3; barrier curvature remains outside numerical scope.

@@ -4,23 +4,24 @@ This repository is an educational, bounded market-risk lab for selected Basel
 Framework market-risk mechanics. It is not a production capital system and does
 not make a regulatory compliance claim.
 
-Planned later phases cover selected GIRR, Equity and FX SBM mechanics,
-non-securitisation DRC, RRAO, selected IMA ES/liquidity-horizon diagnostics,
-RFET/modellability, PLA and regulatory VaR backtesting.
+Planned later phases cover non-securitisation DRC, RRAO, selected IMA
+ES/liquidity-horizon diagnostics, RFET/modellability, PLA and regulatory VaR
+backtesting.
 
 The project is source-traceable: regulatory parameters and scope decisions must
 reference frozen official sources before implementation.
 
-Current development status: Phase 2 — Regulatory Sensitivities, Bucketing &
-Parameter Freeze.
+Current development status: Phase 3 — SBM Aggregation, Curvature & Correlation
+Scenarios.
 
 The current architecture establishes the deterministic chain:
 
 ```text
-source -> scope -> instrument -> risk factor -> regulatory sensitivity -> bucket / risk weight -> future aggregation -> future capital
+official sources -> trading-book scope -> regulatory sensitivities -> risk weights -> bucket aggregation -> correlation scenarios -> selected-scope SBM capital
 ```
 
-Phase 2 adds deterministic synthetic market inputs, selected GIRR/Equity/FX
-delta sensitivities, selected Equity/FX vega sensitivities, selected bucket
-mapping, and source-linked risk weights. It does not calculate within-bucket
-capital, cross-bucket capital, correlation scenarios, DRC, RRAO or IMA results.
+Phase 3 adds selected-scope SBM aggregation for GIRR, Equity and FX delta,
+Equity and FX vega, and selected vanilla Equity/FX curvature. The generated
+LOW, MEDIUM and HIGH scenario totals are all `601060.6801585773`; the reported
+selected-scope SBM capital is the maximum of those scenario totals. DRC, RRAO
+calculation and IMA remain unimplemented.

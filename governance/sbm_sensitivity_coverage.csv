@@ -1,0 +1,23 @@
+instrument_id,pricing_risk_input,regulatory_risk_class,sensitivity_implemented,phase,scope_status,notes
+SYN_USD_GOVT_5Y,USD 5Y risk-free zero rate,GIRR,delta,Phase 2-3,IMPLEMENTED_SELECTED_SCOPE,Selected GIRR PV01 and aggregation implemented
+SYN_USD_GOVT_5Y,issuer credit spread,CSR_NON_SECURITISATION,none,Future,DEFERRED_SELECTED_SCOPE,Synthetic government bond credit-spread sensitivity not numerically implemented
+SYN_USD_IRS_5Y,USD 5Y risk-free zero rate,GIRR,delta,Phase 2-3,IMPLEMENTED_SELECTED_SCOPE,Selected GIRR PV01 and aggregation implemented
+SYN_EQ_INDEX,equity spot,EQUITY,delta,Phase 2-3,IMPLEMENTED_SELECTED_SCOPE,Selected spot delta and aggregation implemented
+SYN_EQ_INDEX,equity repo rate,EQUITY,none,Phase 3,NOT_APPLICABLE,Repo field is not consumed by equity index pricing function
+SYN_EQ_CALL,equity spot,EQUITY,delta and curvature,Phase 2-3,IMPLEMENTED_SELECTED_SCOPE,Selected spot delta and full-revaluation curvature implemented
+SYN_EQ_CALL,equity implied volatility,EQUITY,vega,Phase 2-3,IMPLEMENTED_SELECTED_SCOPE,Regulatory vega and aggregation implemented
+SYN_EQ_CALL,equity repo rate,EQUITY,none,Phase 3,NOT_APPLICABLE,Repo field is not consumed by Black-Scholes project pricing function
+SYN_EQ_CALL,USD risk-free rate,GIRR,none,Future,DEFERRED_SELECTED_SCOPE,Option pricing rate sensitivity identified but excluded from selected Phase 3 numerical scope
+SYN_EQ_CALL,dividend yield,EQUITY,none,Future,DEFERRED_SELECTED_SCOPE,Dividend/carry sensitivity identified but excluded from selected Phase 3 numerical scope
+SYN_EURUSD_FWD,EUR/USD spot,FX,delta,Phase 2-3,IMPLEMENTED_SELECTED_SCOPE,Selected FX delta and aggregation implemented
+SYN_EURUSD_FWD,USD discount rate,GIRR,none,Future,DEFERRED_SELECTED_SCOPE,FX forward rate sensitivity identified but excluded from selected Phase 3 numerical scope
+SYN_EURUSD_FWD,EUR discount rate,GIRR,none,Future,DEFERRED_SELECTED_SCOPE,FX forward rate sensitivity identified but excluded from selected Phase 3 numerical scope
+SYN_EURUSD_CALL,EUR/USD spot,FX,delta and curvature,Phase 2-3,IMPLEMENTED_SELECTED_SCOPE,Selected FX delta and full-revaluation curvature implemented
+SYN_EURUSD_CALL,EUR/USD implied volatility,FX,vega,Phase 2-3,IMPLEMENTED_SELECTED_SCOPE,Regulatory vega and aggregation implemented
+SYN_EURUSD_CALL,USD discount rate,GIRR,none,Future,DEFERRED_SELECTED_SCOPE,FX option rate sensitivity identified but excluded from selected Phase 3 numerical scope
+SYN_EURUSD_CALL,EUR discount rate,GIRR,none,Future,DEFERRED_SELECTED_SCOPE,FX option rate sensitivity identified but excluded from selected Phase 3 numerical scope
+SYN_CORP_BOND,issuer credit spread,CSR_NON_SECURITISATION,none,Future,DEFERRED_SELECTED_SCOPE,CSR sensitivity and DRC are deferred; DRC is not an SBM risk class
+SYN_CORP_BOND,issuer default jump risk,DRC,none,Phase 4,DEFERRED_SELECTED_SCOPE,DRC relevance flagged only; no DRC capital in Phase 3
+SYN_EQ_BARRIER,equity spot,EQUITY,none,Future,DEFERRED_SELECTED_SCOPE,Barrier option lacks defended Phase 3 valuation implementation
+SYN_EQ_BARRIER,equity implied volatility,EQUITY,none,Future,DEFERRED_SELECTED_SCOPE,Barrier option vega deferred rather than invented
+SYN_EQ_BARRIER,path dependency / residual risk,RRAO,none,Phase 4,RRAO_ONLY_DEMONSTRATION,RRAO candidacy remains additive and uncalculated in Phase 3

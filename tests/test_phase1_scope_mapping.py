@@ -223,7 +223,6 @@ def test_corporate_credit_marked_drc_irrelevant_fails(portfolio: dict) -> None:
         validate_portfolio(bad)
 
 
-def test_no_capital_result_or_phase2_sbm_module_exists() -> None:
-    assert not (REPO_ROOT / "src" / "frtb_lab" / "sa" / "sbm.py").exists()
+def test_no_generic_capital_result_exists() -> None:
     assert not (REPO_ROOT / "data" / "artifacts" / "capital_result.csv").exists()
     assert not (REPO_ROOT / "data" / "artifacts" / "capital_result.yaml").exists()
