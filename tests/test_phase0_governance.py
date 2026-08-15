@@ -166,5 +166,7 @@ def test_no_public_file_overclaims_status() -> None:
     ]
     for path in public_files():
         if path.is_file():
-            text = path.read_text(errors="ignore").lower()
+            text = " ".join(path.read_text(errors="ignore").lower().split())
+            denial = "not a regulatory-compliance or production " + "capital engine"
+            text = text.replace(denial, "")
             assert not any(fragment in text for fragment in fragments), path

@@ -17,11 +17,11 @@ Scenarios.
 The current architecture establishes the deterministic chain:
 
 ```text
-official sources -> trading-book scope -> regulatory sensitivities -> risk weights -> bucket aggregation -> correlation scenarios -> selected-scope SBM capital
+Basel sources -> scope / taxonomy -> sensitivities -> SBM -> DRC -> RRAO -> selected-scope SA capital -> future IMA diagnostics
 ```
 
-Phase 3 adds selected-scope SBM aggregation for GIRR, Equity and FX delta,
-Equity and FX vega, and selected vanilla Equity/FX curvature. The generated
-LOW, MEDIUM and HIGH scenario totals are all `601060.6801585773`; the reported
-selected-scope SBM capital is the maximum of those scenario totals. DRC, RRAO
-calculation and IMA remain unimplemented.
+Phase 4 adds selected non-securitisation DRC and selected RRAO, then integrates
+them with the binding selected-scope SBM result. The selected-scope Standardised
+Approach total is `626510.6801585772`, made up of SBM `601060.6801585773`, DRC
+`25200.0`, and RRAO `250.0`. IMA, RFET, PLA and backtesting remain future
+diagnostics.

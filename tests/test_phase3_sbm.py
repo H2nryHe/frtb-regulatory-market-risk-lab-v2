@@ -355,8 +355,8 @@ def test_implemented_correlation_and_curvature_parameters_have_provenance() -> N
 
 def test_no_drc_rrao_or_ima_calculations_exist() -> None:
     forbidden = [
-        REPO_ROOT / "src" / "frtb_lab" / "sa" / "drc.py",
-        REPO_ROOT / "src" / "frtb_lab" / "sa" / "rrao.py",
+        REPO_ROOT / "src" / "frtb_lab" / "sa" / "securitisation_drc.py",
+        REPO_ROOT / "src" / "frtb_lab" / "sa" / "ctp.py",
         REPO_ROOT / "src" / "frtb_lab" / "ima",
         REPO_ROOT / "data" / "artifacts" / "drc_capital.csv",
         REPO_ROOT / "data" / "artifacts" / "rrao_capital.csv",

@@ -171,8 +171,21 @@ instruments:
     primary_risk_class: CSR_NON_SECURITISATION
     drc_relevant: true
     rrao_candidate: false
+    drc_metadata:
+      obligor_id: SYN_CORP_A
+      obligor_type: corporate
+      credit_quality_category: BBB
+      seniority: senior_debt
+      face_value: 600000
+      bond_equivalent_notional: 600000
+      market_value: 570000
+      cumulative_pnl: -30000
+      remaining_maturity_years: 3.0
+      default_direction: long
+      drc_bucket: corporates
+      securitisation_flag: false
     status: ACTIVE_SYNTHETIC
-    notes: Explicit CSR non-securitisation taxonomy and future DRC preparation; no DRC capital calculation.
+    notes: Explicit CSR non-securitisation taxonomy and selected Phase 4 DRC metadata.
   - instrument_id: SYN_EQ_BARRIER
     instrument_type: EQUITY_BARRIER_OPTION
     desk_id: TD-EQUITY
@@ -189,6 +202,17 @@ instruments:
     primary_risk_class: EQUITY
     drc_relevant: false
     rrao_candidate: true
+    rrao_metadata:
+      underlying_type: ordinary_equity
+      path_dependent: true
+      multi_underlying: false
+      other_residual_risk: true
+      exotic_underlying: false
+      listed_or_ccp_eligible: false
+      back_to_back: false
+      rrao_category: OTHER_RESIDUAL_RISK
+      gross_notional: 250000
+      source_parameter_id: RRAO_RW_OTHER_RESIDUAL_RISK
     status: ACTIVE_SYNTHETIC
     notes: Path-dependent example flagged explicitly for future RRAO analysis.
 

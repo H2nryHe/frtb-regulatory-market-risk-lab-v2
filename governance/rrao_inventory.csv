@@ -1,0 +1,4 @@
+instrument_id,underlying_type,path_dependent,multi_underlying,other_residual_risk,exotic_underlying,listed_or_ccp_eligible,back_to_back,rrao_category,gross_notional,risk_weight,in_scope,source_id,source_paragraph_or_table,notes
+SYN_EQ_CALL,ordinary_equity,false,false,false,false,false,false,NOT_IN_SCOPE,500000,0.0,false,BIS_MAR23,MAR23.4,Vanilla single-underlying option does not become RRAO solely due to ordinary optionality
+SYN_EURUSD_CALL,ordinary_fx,false,false,false,false,false,false,NOT_IN_SCOPE,750000,0.0,false,BIS_MAR23,MAR23.4,Vanilla single-underlying FX option does not become RRAO solely due to ordinary optionality
+SYN_EQ_BARRIER,ordinary_equity,true,false,true,false,false,false,OTHER_RESIDUAL_RISK,250000,0.001,true,BIS_MAR23,MAR23.4; MAR23.5; MAR23.8,Path-dependent barrier option has other residual risk; exotic instrument is not an exotic underlying

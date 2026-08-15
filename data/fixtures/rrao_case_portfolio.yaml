@@ -1,0 +1,34 @@
+metadata:
+  fixture_id: phase4_rrao_case_portfolio
+  synthetic: true
+  description: Deterministic RRAO classification validation fixture.
+  source_id: BIS_MAR23
+
+instruments:
+  - instrument_id: SYN_EXOTIC_UNDERLYING_NOTE
+    underlying_type: synthetic_weather_index
+    path_dependent: false
+    multi_underlying: false
+    other_residual_risk: false
+    exotic_underlying: true
+    listed_or_ccp_eligible: true
+    back_to_back: false
+    gross_notional: 1000000
+  - instrument_id: SYN_LISTED_BARRIER_CONTROL
+    underlying_type: ordinary_equity
+    path_dependent: true
+    multi_underlying: false
+    other_residual_risk: true
+    exotic_underlying: false
+    listed_or_ccp_eligible: true
+    back_to_back: false
+    gross_notional: 300000
+  - instrument_id: SYN_BACK_TO_BACK_BARRIER
+    underlying_type: ordinary_equity
+    path_dependent: true
+    multi_underlying: false
+    other_residual_risk: true
+    exotic_underlying: false
+    listed_or_ccp_eligible: false
+    back_to_back: true
+    gross_notional: 400000

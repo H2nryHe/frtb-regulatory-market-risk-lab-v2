@@ -317,15 +317,17 @@ def test_weighted_sensitivity_equals_raw_times_sourced_weight(tmp_path: Path) ->
 
 def test_no_secondary_domain_parameter_sources() -> None:
     for row in implemented_parameters().values():
-        if row["implementation_status"] == "IMPLEMENTED":
+        if row["implementation_status"] == "IMPLEMENTED" and row["component"].startswith(
+            "Phase2"
+        ):
             assert row["source_id"] == "BIS_MAR21"
             assert row["source_paragraph_or_table"].startswith("MAR21")
 
 
 def test_no_drc_rrao_ima_or_generic_capital_artifacts_exist() -> None:
     forbidden_paths = [
-        REPO_ROOT / "src" / "frtb_lab" / "sa" / "drc.py",
-        REPO_ROOT / "src" / "frtb_lab" / "sa" / "rrao.py",
+        REPO_ROOT / "src" / "frtb_lab" / "sa" / "securitisation_drc.py",
+        REPO_ROOT / "src" / "frtb_lab" / "sa" / "ctp.py",
         REPO_ROOT / "src" / "frtb_lab" / "sa" / "ima",
         REPO_ROOT / "src" / "frtb_lab" / "ima",
         REPO_ROOT / "data" / "artifacts" / "sbm_capital.csv",

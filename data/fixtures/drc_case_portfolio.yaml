@@ -1,0 +1,79 @@
+metadata:
+  fixture_id: phase4_drc_case_portfolio
+  synthetic: true
+  description: Deterministic non-securitisation DRC validation fixture.
+  source_id: BIS_MAR22
+
+positions:
+  - instrument_id: DRC_A_LONG_SENIOR
+    obligor_id: SYN_OBLIGOR_A
+    obligor_type: corporate
+    credit_quality_category: A
+    seniority: senior_debt
+    bond_equivalent_notional: 1000000
+    market_value: 980000
+    cumulative_pnl: -20000
+    remaining_maturity_years: 2.0
+    default_direction: long
+    drc_bucket: corporates
+    securitisation_flag: false
+  - instrument_id: DRC_A_SHORT_EQUITY
+    obligor_id: SYN_OBLIGOR_A
+    obligor_type: corporate
+    credit_quality_category: A
+    seniority: equity_or_non_senior_debt
+    bond_equivalent_notional: -200000
+    market_value: -180000
+    cumulative_pnl: 20000
+    remaining_maturity_years: 2.0
+    default_direction: short
+    drc_bucket: corporates
+    securitisation_flag: false
+  - instrument_id: DRC_B_LONG_EQUITY
+    obligor_id: SYN_OBLIGOR_B
+    obligor_type: corporate
+    credit_quality_category: BB
+    seniority: equity_or_non_senior_debt
+    bond_equivalent_notional: 300000
+    market_value: 270000
+    cumulative_pnl: -30000
+    remaining_maturity_years: 2.0
+    default_direction: long
+    drc_bucket: corporates
+    securitisation_flag: false
+  - instrument_id: DRC_B_SHORT_SENIOR_REJECTED
+    obligor_id: SYN_OBLIGOR_B
+    obligor_type: corporate
+    credit_quality_category: BB
+    seniority: senior_debt
+    bond_equivalent_notional: -100000
+    market_value: -95000
+    cumulative_pnl: 5000
+    remaining_maturity_years: 2.0
+    default_direction: short
+    drc_bucket: corporates
+    securitisation_flag: false
+  - instrument_id: DRC_C_LONG_6M
+    obligor_id: SYN_OBLIGOR_C
+    obligor_type: corporate
+    credit_quality_category: BBB
+    seniority: senior_debt
+    bond_equivalent_notional: 500000
+    market_value: 490000
+    cumulative_pnl: -10000
+    remaining_maturity_years: 0.5
+    default_direction: long
+    drc_bucket: corporates
+    securitisation_flag: false
+  - instrument_id: DRC_D_SHORT_NONSENIOR
+    obligor_id: SYN_OBLIGOR_D
+    obligor_type: corporate
+    credit_quality_category: B
+    seniority: equity_or_non_senior_debt
+    bond_equivalent_notional: -100000
+    market_value: -105000
+    cumulative_pnl: -5000
+    remaining_maturity_years: 1.5
+    default_direction: short
+    drc_bucket: corporates
+    securitisation_flag: false

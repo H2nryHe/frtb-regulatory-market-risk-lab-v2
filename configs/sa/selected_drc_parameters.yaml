@@ -1,0 +1,56 @@
+metadata:
+  config_id: selected_phase4_drc_parameters
+  source_id: BIS_MAR22
+  source_url: https://www.bis.org/basel_framework/chapter/MAR/22.htm
+  effective_date: "2023-01-01"
+  last_updated_date: "2020-03-27"
+  selected_scope_only: true
+  notes: >
+    Selected non-securitisation DRC parameters for Phase 4. Securitisation and
+    CTP DRC are not configured.
+
+lgd:
+  source_paragraphs: [MAR22.12]
+  equity_or_non_senior_debt: 1.00
+  senior_debt: 0.75
+  covered_bond: 0.25
+
+maturity_scaling:
+  source_paragraphs: [MAR22.15, MAR22.18, MAR22.19, MAR22.20]
+  capital_horizon_years: 1.0
+  minimum_maturity_years: 0.25
+  scale_formula: min(max(remaining_maturity_years, 0.25), 1.0)
+
+seniority:
+  source_paragraphs: [MAR22.19]
+  rank_low_to_high:
+    equity_or_non_senior_debt: 1
+    senior_debt: 2
+    covered_bond: 3
+
+buckets:
+  source_paragraphs: [MAR22.22]
+  supported:
+    - corporates
+    - sovereigns
+    - local_governments_municipalities
+
+credit_quality_risk_weights:
+  source_paragraphs: [MAR22.24 Table 2]
+  AAA: 0.005
+  AA: 0.02
+  A: 0.03
+  BBB: 0.06
+  BB: 0.15
+  B: 0.30
+  CCC: 0.50
+  Unrated: 0.15
+  Defaulted: 1.00
+
+formulas:
+  source_paragraphs: [MAR22.10, MAR22.11, MAR22.13, MAR22.21, MAR22.23, MAR22.25, MAR22.26]
+  gross_jtd_long: max(LGD * signed_notional + cumulative_pnl, 0)
+  gross_jtd_short: min(LGD * signed_notional + cumulative_pnl, 0)
+  hbr: net_long_jtd / (net_long_jtd + abs(net_short_jtd))
+  bucket_drc: max(sum(rw * net_long_jtd) - hbr * abs(sum(rw * net_short_jtd)), 0)
+  total_non_securitisation_drc: sum(bucket_drc)

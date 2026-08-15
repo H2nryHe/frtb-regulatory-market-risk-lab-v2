@@ -1,0 +1,29 @@
+metadata:
+  config_id: selected_phase4_rrao_parameters
+  source_id: BIS_MAR23
+  source_url: https://www.bis.org/basel_framework/chapter/MAR/23.htm
+  effective_date: "2023-01-01"
+  last_updated_date: "2020-03-27"
+  selected_scope_only: true
+  notes: >
+    Selected RRAO categories, weights and exclusions for Phase 4. RRAO remains
+    additive to SBM and DRC scope.
+
+categories:
+  exotic_underlying:
+    source_paragraphs: [MAR23.2, MAR23.3, MAR23.8]
+    risk_weight: 0.01
+  other_residual_risk:
+    source_paragraphs: [MAR23.4, MAR23.5, MAR23.8]
+    risk_weight: 0.001
+
+exclusions:
+  source_paragraphs: [MAR23.7]
+  exact_back_to_back_excluded: true
+  listed_or_ccp_other_residual_risk_excluded: true
+  listed_or_ccp_exotic_underlying_included: true
+
+formulas:
+  source_paragraphs: [MAR23.1, MAR23.8]
+  contribution: gross_notional * risk_weight
+  total_rrao: simple_sum_included_contributions

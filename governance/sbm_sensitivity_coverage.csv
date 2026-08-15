@@ -17,7 +17,7 @@ SYN_EURUSD_CALL,EUR/USD implied volatility,FX,vega,Phase 2-3,IMPLEMENTED_SELECTE
 SYN_EURUSD_CALL,USD discount rate,GIRR,none,Future,DEFERRED_SELECTED_SCOPE,FX option rate sensitivity identified but excluded from selected Phase 3 numerical scope
 SYN_EURUSD_CALL,EUR discount rate,GIRR,none,Future,DEFERRED_SELECTED_SCOPE,FX option rate sensitivity identified but excluded from selected Phase 3 numerical scope
 SYN_CORP_BOND,issuer credit spread,CSR_NON_SECURITISATION,none,Future,DEFERRED_SELECTED_SCOPE,CSR sensitivity and DRC are deferred; DRC is not an SBM risk class
-SYN_CORP_BOND,issuer default jump risk,DRC,none,Phase 4,DEFERRED_SELECTED_SCOPE,DRC relevance flagged only; no DRC capital in Phase 3
+SYN_CORP_BOND,issuer default jump risk,DRC,non-securitisation DRC,Phase 4,IMPLEMENTED_SELECTED_SCOPE,Selected non-securitisation DRC implemented separately from SBM
 SYN_EQ_BARRIER,equity spot,EQUITY,none,Future,DEFERRED_SELECTED_SCOPE,Barrier option lacks defended Phase 3 valuation implementation
 SYN_EQ_BARRIER,equity implied volatility,EQUITY,none,Future,DEFERRED_SELECTED_SCOPE,Barrier option vega deferred rather than invented
-SYN_EQ_BARRIER,path dependency / residual risk,RRAO,none,Phase 4,RRAO_ONLY_DEMONSTRATION,RRAO candidacy remains additive and uncalculated in Phase 3
+SYN_EQ_BARRIER,path dependency / residual risk,RRAO,RRAO,Phase 4,IMPLEMENTED_SELECTED_SCOPE,Selected RRAO implemented additively; barrier SBM sensitivities remain deferred

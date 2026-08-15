@@ -5,5 +5,5 @@ EQUITY_INDEX,EQUITY,equity_spot,true,false,false,false,false,BIS_MAR21,MAR21.12;
 EQUITY_OPTION,EQUITY,equity_spot_and_volatility,true,true,true,false,false,BIS_MAR21,MAR21.21; MAR21.25-MAR21.28,Phase 2,Vanilla optionality requires future delta/vega/curvature treatment
 FX_FORWARD,FX,fx_spot,true,false,false,false,false,BIS_MAR21,MAR21.14; MAR21.24,Phase 2,Future FX delta mapping only
 FX_OPTION,FX,fx_spot_and_volatility,true,true,true,false,false,BIS_MAR21,MAR21.24; MAR21.25-MAR21.28,Phase 2,Vanilla optionality requires future delta/vega/curvature treatment
-CORPORATE_BOND,CSR_NON_SECURITISATION,issuer_default_reference,false,false,false,true,false,BIS_MAR22,MAR22.1; MAR22.9-MAR22.26,Phase 4,Future CSR non-securitisation taxonomy and DRC preparation only
-EQUITY_BARRIER_OPTION,EQUITY,equity_spot_and_volatility,true,true,true,false,true,BIS_MAR23,MAR23.2-MAR23.5,Phase 4,Path-dependent exotic flagged for future RRAO analysis
+CORPORATE_BOND,CSR_NON_SECURITISATION,issuer_default_reference,false,false,false,true,false,BIS_MAR22,MAR22.1; MAR22.9-MAR22.26,Phase 4,Selected non-securitisation DRC implemented separately from SBM
+EQUITY_BARRIER_OPTION,EQUITY,equity_spot_and_volatility,true,true,true,false,true,BIS_MAR23,MAR23.2-MAR23.5,Phase 4,Path-dependent barrier option classified for selected RRAO; SBM sensitivities remain deferred

@@ -2,11 +2,12 @@
 
 Scope document for the current phase gate. It records completed source
 governance, Phase 1 taxonomy/mapping work, selected Phase 2 raw/weighted
-sensitivity preparation, and selected Phase 3 SBM aggregation.
+sensitivity preparation, selected Phase 3 SBM aggregation, and selected Phase 4
+DRC/RRAO integration.
 
 | Basel chapter / paragraph area | Concept | Planned project phase | Implementation scope | Explicitly omitted scope | Source ID |
 | --- | --- | --- | --- | --- | --- |
-| MAR20.1-MAR20.5 | Standardised approach structure | Phase 0 source governance; later SA phases | Use as organizing source for selected SA components only | Full SA coverage and market-risk RWA reporting | BIS_MAR20 |
+| MAR20.1-MAR20.5 | Standardised approach structure | Phase 0 source governance; later SA phases | Use as organizing source for selected SA components only | Complete SA coverage and market-risk RWA reporting | BIS_MAR20 |
 | MAR21.1-MAR21.101 | Sensitivities-based method | Phases 2-3 | Planned selected GIRR SBM, Equity SBM and FX SBM, including delta, vega, curvature, bucket aggregation and correlation scenarios | Full seven-risk-class SBM; CSR non-securitisation, securitisation, CTP and commodity implementation | BIS_MAR21 |
 | MAR22.1-MAR22.26 | Default risk capital requirement | Phase 4 | Planned non-securitisation DRC for controlled corporate, sovereign and local-government/municipality examples | Securitisation DRC, non-CTP securitisation and CTP | BIS_MAR22 |
 | MAR23.1-MAR23.8 | Residual Risk Add-On | Phase 4 | Planned bounded RRAO classifier and calculator for deterministic examples | Exhaustive product taxonomy and reporting workflow | BIS_MAR23 |
@@ -30,6 +31,9 @@ sensitivity preparation, and selected Phase 3 SBM aggregation.
 | MAR21.4; MAR21.90-MAR21.95 | Selected vega aggregation | Phase 3 | Implemented selected Equity and FX vega aggregation with maturity correlation treatment and scenario transforms | Complete vega universe across all risk classes | BIS_MAR21 |
 | MAR21.5; MAR21.96-MAR21.101 | Selected curvature | Phase 3 | Implemented selected full-revaluation curvature for `SYN_EQ_CALL` and `SYN_EURUSD_CALL`, including delta removal and squared-delta correlation treatment | Barrier option curvature and complete curvature coverage | BIS_MAR21 |
 | MAR21.6 | Correlation scenarios | Phase 3 | Implemented LOW, MEDIUM and HIGH transforms for selected rho and gamma parameters, including high cap and low transform branch behavior | Scenario coverage for risk classes outside selected numerical scope | BIS_MAR21 |
+| MAR22.1-MAR22.26 | Selected non-securitisation DRC | Phase 4 | Implemented selected corporate non-securitisation DRC with gross JTD, maturity scaling, same-obligor netting, seniority rules, HBR, credit-quality risk weights, bucket capital and no cross-bucket diversification | Securitisation DRC, CTP, tranche treatment and index decomposition | BIS_MAR22 |
+| MAR23.1-MAR23.8 | Selected RRAO | Phase 4 | Implemented selected RRAO classification and gross-notional calculation for barrier other-residual risk plus test-only exotic-underlying and exclusion cases | Exhaustive residual-risk product taxonomy and pricing of exotic cases | BIS_MAR23 |
+| MAR20.1-MAR20.5; MAR21.7; MAR22.26; MAR23.8 | Selected-scope Standardised Approach integration | Phase 4 | Implemented selected-scope SA total as binding selected SBM plus non-securitisation DRC plus RRAO | Complete SA, market-risk RWA reporting, IMA ES, RFET, PLA and backtesting | BIS_MAR20; BIS_MAR21; BIS_MAR22; BIS_MAR23 |
 
 Explicit out-of-scope items for this project version: securitisation DRC, CTP,
 full seven-risk-class SBM, full NMRF SES capital engine, full bank-wide IMCC

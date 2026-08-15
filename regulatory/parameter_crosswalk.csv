@@ -37,3 +37,31 @@ VEGA_MATURITY_CORRELATION_FORMULA,Phase3 vega correlations,Vega option maturity 
 CURVATURE_EQUITY_FX_SHOCK_LINKED_TO_DELTA_RW,Phase3 curvature,Selected Equity and FX curvature shock source,corresponding_delta_risk_weight,formula reference,BIS_MAR21,MAR21.96; MAR21.98; MAR21.99,2023-01-01,IMPLEMENTED,Equity and FX vanilla option curvature shocks use corresponding delta risk weights
 CURVATURE_CORRELATION_SQUARED_DELTA,Phase3 curvature,Curvature correlation transformation,square_corresponding_delta_correlation,formula reference,BIS_MAR21,MAR21.100; MAR21.101,2023-01-01,IMPLEMENTED,Curvature rho and gamma are derived from squared delta correlations before scenario transformation
 CURVATURE_FULL_REVALUATION_FORMULA,Phase3 curvature,Curvature full-revaluation CVR formula,full_revaluation_less_delta_contribution,formula,BIS_MAR21,MAR21.5; MAR21.96; MAR21.97,2023-01-01,IMPLEMENTED,Selected vanilla options use full revaluation up and down shocks with delta removed once
+DRC_GROSS_JTD_FORMULA,Phase4 DRC,Gross JTD formula,LGD * signed_notional + cumulative_pnl with long max and short min,formula,BIS_MAR22,MAR22.10-MAR22.14,2023-01-01,IMPLEMENTED,Used exposure by exposure for selected non-securitisation DRC
+DRC_LGD_EQUITY_NONSENIOR,Phase4 DRC,Equity and non-senior debt LGD,1.00,decimal LGD,BIS_MAR22,MAR22.12,2023-01-01,IMPLEMENTED,Selected LGD category supported for DRC fixtures
+DRC_LGD_SENIOR_DEBT,Phase4 DRC,Senior debt LGD,0.75,decimal LGD,BIS_MAR22,MAR22.12,2023-01-01,IMPLEMENTED,Used by canonical corporate bond
+DRC_LGD_COVERED_BOND,Phase4 DRC,Covered bond LGD,0.25,decimal LGD,BIS_MAR22,MAR22.12,2023-01-01,IMPLEMENTED,Selected LGD category supported for tests
+DRC_MATURITY_CAPITAL_HORIZON,Phase4 DRC,Maturity scaling capital horizon,1.0,years,BIS_MAR22,MAR22.15,2023-01-01,IMPLEMENTED,No down-scaling for maturity greater than or equal to one year
+DRC_MATURITY_FLOOR,Phase4 DRC,Maturity scaling minimum floor,0.25,years,BIS_MAR22,MAR22.18,2023-01-01,IMPLEMENTED,Positions below three months use one-quarter year scaling
+DRC_SENIORITY_OFFSET_RULE,Phase4 DRC,Same-obligor seniority offset rule,short_same_or_lower_seniority_than_long,rule,BIS_MAR22,MAR22.19,2023-01-01,IMPLEMENTED,Short equity/non-senior may offset long senior debt but not the reverse
+DRC_NONSEC_BUCKETS,Phase4 DRC,Supported non-securitisation DRC buckets,corporates|sovereigns|local_governments_municipalities,identifier set,BIS_MAR22,MAR22.22,2023-01-01,IMPLEMENTED,Selected engine rejects securitisation and unsupported buckets
+DRC_HBR_FORMULA,Phase4 DRC,Hedge benefit ratio formula,net_long_jtd / (net_long_jtd + abs(net_short_jtd)),formula,BIS_MAR22,MAR22.23,2023-01-01,IMPLEMENTED,Uses unweighted net JTD amounts
+DRC_BUCKET_FORMULA,Phase4 DRC,Bucket DRC formula,"max(sum(rw * net_long_jtd) - HBR * abs(sum(rw * net_short_jtd)),0)",formula,BIS_MAR22,MAR22.25,2023-01-01,IMPLEMENTED,Applies zero floor after HBR-adjusted weighted net JTD combination
+DRC_ACROSS_BUCKET_SUM,Phase4 DRC,Non-securitisation DRC across-bucket aggregation,simple_sum_bucket_drc,formula,BIS_MAR22,MAR22.26,2023-01-01,IMPLEMENTED,No cross-bucket hedging or diversification benefit
+DRC_RW_AAA,Phase4 DRC,Default risk weight AAA,0.005,decimal risk weight,BIS_MAR22,MAR22.24 Table 2,2023-01-01,IMPLEMENTED,Selected Table 2 category
+DRC_RW_AA,Phase4 DRC,Default risk weight AA,0.02,decimal risk weight,BIS_MAR22,MAR22.24 Table 2,2023-01-01,IMPLEMENTED,Selected Table 2 category
+DRC_RW_A,Phase4 DRC,Default risk weight A,0.03,decimal risk weight,BIS_MAR22,MAR22.24 Table 2,2023-01-01,IMPLEMENTED,Selected Table 2 category
+DRC_RW_BBB,Phase4 DRC,Default risk weight BBB,0.06,decimal risk weight,BIS_MAR22,MAR22.24 Table 2,2023-01-01,IMPLEMENTED,Used by canonical corporate bond
+DRC_RW_BB,Phase4 DRC,Default risk weight BB,0.15,decimal risk weight,BIS_MAR22,MAR22.24 Table 2,2023-01-01,IMPLEMENTED,Selected Table 2 category
+DRC_RW_B,Phase4 DRC,Default risk weight B,0.30,decimal risk weight,BIS_MAR22,MAR22.24 Table 2,2023-01-01,IMPLEMENTED,Selected Table 2 category
+DRC_RW_CCC,Phase4 DRC,Default risk weight CCC,0.50,decimal risk weight,BIS_MAR22,MAR22.24 Table 2,2023-01-01,IMPLEMENTED,Selected Table 2 category
+DRC_RW_UNRATED,Phase4 DRC,Default risk weight Unrated,0.15,decimal risk weight,BIS_MAR22,MAR22.24 Table 2,2023-01-01,IMPLEMENTED,Invalid labels fail rather than silently mapping to Unrated
+DRC_RW_DEFAULTED,Phase4 DRC,Default risk weight Defaulted,1.00,decimal risk weight,BIS_MAR22,MAR22.24 Table 2,2023-01-01,IMPLEMENTED,Selected Table 2 category
+RRAO_CATEGORY_EXOTIC_UNDERLYING,Phase4 RRAO,Exotic underlying category,underlying outside SBM or DRC risk-factor scope,definition,BIS_MAR23,MAR23.2; MAR23.3,2023-01-01,IMPLEMENTED,Separate category from exotic instrument structure
+RRAO_CATEGORY_OTHER_RESIDUAL_RISK,Phase4 RRAO,Other residual risk category,path-dependent or other residual risk payoff,definition,BIS_MAR23,MAR23.4; MAR23.5,2023-01-01,IMPLEMENTED,Barrier option classified here due path dependency and gap risk
+RRAO_EXACT_BACK_TO_BACK_EXCLUSION,Phase4 RRAO,Exact back-to-back exclusion,exclude,rule,BIS_MAR23,MAR23.7,2023-01-01,IMPLEMENTED,Applied before category contribution
+RRAO_LISTED_CCP_OTHER_RESIDUAL_EXCLUSION,Phase4 RRAO,Listed or CCP eligible other-residual exclusion,exclude_other_residual_only,rule,BIS_MAR23,MAR23.7,2023-01-01,IMPLEMENTED,Does not exclude listed or CCP eligible exotic-underlying instruments
+RRAO_ADDITIVE_SCOPE_RULE,Phase4 RRAO,RRAO additive treatment,does_not_reduce_delta_vega_curvature_or_DRC_scope,rule,BIS_MAR23,MAR23.8,2023-01-01,IMPLEMENTED,RRAO is added separately and does not remove SBM or DRC treatment
+RRAO_RW_EXOTIC_UNDERLYING,Phase4 RRAO,RRAO risk weight exotic underlying,0.01,decimal risk weight,BIS_MAR23,MAR23.8,2023-01-01,IMPLEMENTED,Applied to selected exotic-underlying test fixture
+RRAO_RW_OTHER_RESIDUAL_RISK,Phase4 RRAO,RRAO risk weight other residual risk,0.001,decimal risk weight,BIS_MAR23,MAR23.8,2023-01-01,IMPLEMENTED,Applied to SYN_EQ_BARRIER
+RRAO_GROSS_NOTIONAL_SUM_FORMULA,Phase4 RRAO,RRAO gross notional simple-sum formula,gross_notional * risk_weight summed with no netting,formula,BIS_MAR23,MAR23.8,2023-01-01,IMPLEMENTED,No netting or diversification recognised for selected RRAO
