@@ -1,0 +1,129 @@
+project:
+  name: frtb-regulatory-market-risk-lab-v2
+  source_freeze_date: "2026-08-15"
+  implementation_basis: selected_basel_market_risk_mechanics
+  claim_note: >-
+    Educational portfolio implementation of selected regulatory-market-risk
+    mechanics. Not a production capital system or regulatory compliance claim.
+
+sources:
+  - source_id: BIS_MAR20
+    authority: Basel Committee on Banking Supervision / BIS
+    title: "MAR20 - Standardised approach: general provisions and structure"
+    url: "https://www.bis.org/basel_framework/chapter/MAR/20.htm"
+    status: "Current Basel Framework chapter; canonical page reviewed"
+    effective_date: "2023-01-01"
+    last_updated_date: "2020-03-27"
+    retrieved_date: "2026-08-15"
+    project_role: "Defines selected standardised-approach structure and SA component boundaries."
+    relevant_sections: ["MAR20.1-MAR20.5"]
+    local_snapshot_sha256: "569199744446b4d35316d6da1afb307c00db8576b4dadff477e7c87c2a440f53"
+    notes: "Used for scope and structure only in Phase 0; no capital formula implemented."
+  - source_id: BIS_MAR21
+    authority: Basel Committee on Banking Supervision / BIS
+    title: "MAR21 - Standardised approach: sensitivities-based method"
+    url: "https://www.bis.org/basel_framework/chapter/MAR/21.htm"
+    status: "Current"
+    effective_date: "2023-01-01"
+    last_updated_date: "2026-03-23"
+    retrieved_date: "2026-08-15"
+    project_role: "Planned source for selected GIRR, Equity and FX SBM scope."
+    relevant_sections: ["MAR21.1-MAR21.101"]
+    local_snapshot_sha256: "569199744446b4d35316d6da1afb307c00db8576b4dadff477e7c87c2a440f53"
+    notes: "Phase 0 records source provenance only; large parameter tables are not populated."
+  - source_id: BIS_MAR22
+    authority: Basel Committee on Banking Supervision / BIS
+    title: "MAR22 - Standardised approach: default risk capital requirement"
+    url: "https://www.bis.org/basel_framework/chapter/MAR/22.htm"
+    status: "Current"
+    effective_date: "2023-01-01"
+    last_updated_date: "2020-03-27"
+    retrieved_date: "2026-08-15"
+    project_role: "Planned source for non-securitisation DRC."
+    relevant_sections: ["MAR22.1-MAR22.26"]
+    local_snapshot_sha256: "569199744446b4d35316d6da1afb307c00db8576b4dadff477e7c87c2a440f53"
+    notes: "Securitisation and CTP DRC remain out of scope."
+  - source_id: BIS_MAR23
+    authority: Basel Committee on Banking Supervision / BIS
+    title: "MAR23 - Standardised approach: residual risk add-on"
+    url: "https://www.bis.org/basel_framework/chapter/MAR/23.htm"
+    status: "Current"
+    effective_date: "2023-01-01"
+    last_updated_date: "2020-03-27"
+    retrieved_date: "2026-08-15"
+    project_role: "Planned source for bounded RRAO classification and examples."
+    relevant_sections: ["MAR23.1-MAR23.8"]
+    local_snapshot_sha256: "569199744446b4d35316d6da1afb307c00db8576b4dadff477e7c87c2a440f53"
+    notes: "No RRAO calculation implemented in Phase 0."
+  - source_id: BIS_MAR30
+    authority: Basel Committee on Banking Supervision / BIS
+    title: "MAR30 - Internal models approach: general provisions"
+    url: "https://www.bis.org/basel_framework/chapter/MAR/30.htm"
+    status: "Current"
+    effective_date: "2023-01-01"
+    last_updated_date: "2024-07-05"
+    retrieved_date: "2026-08-15"
+    project_role: "Governance context for selected IMA diagnostics and desk eligibility concepts."
+    relevant_sections: ["MAR30.1-MAR30.18"]
+    local_snapshot_sha256: "569199744446b4d35316d6da1afb307c00db8576b4dadff477e7c87c2a440f53"
+    notes: "Project does not represent a bank model permission process."
+  - source_id: BIS_MAR31
+    authority: Basel Committee on Banking Supervision / BIS
+    title: "MAR31 - Internal models approach: model requirements"
+    url: "https://www.bis.org/basel_framework/chapter/MAR/31.htm"
+    status: "Current Basel Framework chapter; canonical page reviewed"
+    effective_date: "2023-01-01"
+    last_updated_date: "2020-03-27"
+    retrieved_date: "2026-08-15"
+    project_role: "Planned source for RFET and modellability classification."
+    relevant_sections: ["MAR31.1-MAR31.26"]
+    local_snapshot_sha256: "569199744446b4d35316d6da1afb307c00db8576b4dadff477e7c87c2a440f53"
+    notes: "Phase 0 records RFET source scope only; no RFET logic implemented."
+  - source_id: BIS_MAR32
+    authority: Basel Committee on Banking Supervision / BIS
+    title: "MAR32 - Internal models approach: backtesting and P&L attribution test requirements"
+    url: "https://www.bis.org/basel_framework/chapter/MAR/32.htm"
+    status: "Current"
+    effective_date: "2023-01-01"
+    last_updated_date: "2020-03-27"
+    retrieved_date: "2026-08-15"
+    project_role: "Planned source for PLA and VaR backtesting diagnostics."
+    relevant_sections: ["MAR32.1-MAR32.45"]
+    local_snapshot_sha256: "569199744446b4d35316d6da1afb307c00db8576b4dadff477e7c87c2a440f53"
+    notes: "No PLA or backtesting implementation in Phase 0."
+  - source_id: BIS_MAR33
+    authority: Basel Committee on Banking Supervision / BIS
+    title: "MAR33 - Internal models approach: capital requirements calculation"
+    url: "https://www.bis.org/basel_framework/chapter/MAR/33.htm"
+    status: "Current Basel Framework chapter; canonical page reviewed"
+    effective_date: "2023-01-01"
+    last_updated_date: "2020-06-05"
+    retrieved_date: "2026-08-15"
+    project_role: "Planned source for selected ES and liquidity-horizon mechanics."
+    relevant_sections: ["MAR33.1-MAR33.17", "MAR33.40-MAR33.46"]
+    local_snapshot_sha256: "569199744446b4d35316d6da1afb307c00db8576b4dadff477e7c87c2a440f53"
+    notes: "Full IMCC and SES capital engines remain out of scope."
+  - source_id: FED_2026_PRESS_RELEASE
+    authority: "Board of Governors of the Federal Reserve System; FDIC; OCC"
+    title: "Agencies request comment on proposals to modernize the regulatory capital framework and maintain the strength of the banking system"
+    url: "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260319a.htm"
+    status: "Joint press release requesting comment on proposals"
+    effective_date: null
+    last_updated_date: "2026-03-19"
+    retrieved_date: "2026-08-15"
+    project_role: "Official U.S. 2026 proposal status and crosswalk context."
+    relevant_sections: ["press release lines describing request for comment", "comments due date"]
+    local_snapshot_sha256: "569199744446b4d35316d6da1afb307c00db8576b4dadff477e7c87c2a440f53"
+    notes: "Official page states comments were due 2026-06-18; no U.S.-proposal parameters implemented in Phase 0."
+  - source_id: FED_2026_PROPOSAL_DETAILS
+    authority: "Board of Governors of the Federal Reserve System"
+    title: "Regulatory Capital Rule: Category I and II Banking Organizations, Banking Organizations with Significant Trading Activity, and Optional Adoption for Other Banking Organizations [R-1887]"
+    url: "https://www.federalreserve.gov/apps/proposals/FR-2026-0007-01/details"
+    status: "Rulemaking Proposal"
+    effective_date: null
+    last_updated_date: null
+    retrieved_date: "2026-08-15"
+    project_role: "Official U.S. 2026 market-risk proposal details for later documentation crosswalk."
+    relevant_sections: ["proposal details", "comments due date"]
+    local_snapshot_sha256: "569199744446b4d35316d6da1afb307c00db8576b4dadff477e7c87c2a440f53"
+    notes: "Official Federal Reserve proposal page still describes this source as a Rulemaking Proposal as retrieved."

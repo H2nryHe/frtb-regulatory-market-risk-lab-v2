@@ -1,0 +1,279 @@
+metadata:
+  fixture_id: canonical_phase1_synthetic_portfolio
+  description: Synthetic educational portfolio for selected Basel market-risk mechanics.
+  synthetic: true
+  source_basis:
+    - BIS_MAR20
+    - BIS_MAR21
+    - BIS_MAR22
+    - BIS_MAR23
+
+desks:
+  - desk_id: TD-RATES
+    desk_name: Synthetic Rates Desk
+    description: Synthetic USD rates positions used for future selected GIRR mechanics.
+    portfolio_scope: synthetic educational portfolio
+    trading_book_scope: selected trading-book example
+    planned_sa_scope: GIRR SBM
+    planned_ima_scope: selected ES/RFET/PLA/backtesting diagnostics
+    status: ACTIVE_SYNTHETIC
+    notes: Not an actual institutional trading desk.
+  - desk_id: TD-EQUITY
+    desk_name: Synthetic Equity Desk
+    description: Synthetic equity index and option positions for future selected equity mechanics.
+    portfolio_scope: synthetic educational portfolio
+    trading_book_scope: selected trading-book example
+    planned_sa_scope: Equity SBM and RRAO preparation
+    planned_ima_scope: selected ES/RFET/PLA/backtesting diagnostics
+    status: ACTIVE_SYNTHETIC
+    notes: Includes a barrier option only as an RRAO preparation example.
+  - desk_id: TD-FX
+    desk_name: Synthetic FX Desk
+    description: Synthetic EUR/USD forward and option positions for future selected FX mechanics.
+    portfolio_scope: synthetic educational portfolio
+    trading_book_scope: selected trading-book example
+    planned_sa_scope: FX SBM
+    planned_ima_scope: selected ES/RFET/PLA/backtesting diagnostics
+    status: ACTIVE_SYNTHETIC
+    notes: Uses deterministic notional metadata only; no live market data.
+  - desk_id: TD-CREDIT
+    desk_name: Synthetic Credit Desk
+    description: Synthetic non-securitisation corporate credit position for DRC preparation.
+    portfolio_scope: synthetic educational portfolio
+    trading_book_scope: selected trading-book example
+    planned_sa_scope: non-securitisation DRC preparation
+    planned_ima_scope: not in Phase 1 scope
+    status: ACTIVE_SYNTHETIC
+    notes: No DRC capital is calculated in Phase 1.
+
+instruments:
+  - instrument_id: SYN_USD_GOVT_5Y
+    instrument_type: GOVERNMENT_BOND
+    desk_id: TD-RATES
+    description: Synthetic USD five-year government bond exposure.
+    currency: USD
+    underlier_or_issuer: SYN_US_TREASURY
+    maturity_or_tenor: 5Y
+    notional: 1000000
+    reference_value: 985000
+    trading_book_flag: true
+    optionality_flag: false
+    exotic_flag: false
+    securitisation_flag: false
+    primary_risk_class: GIRR
+    drc_relevant: false
+    rrao_candidate: false
+    status: ACTIVE_SYNTHETIC
+    notes: Selected for future GIRR mapping; no pricing or capital calculation.
+  - instrument_id: SYN_USD_IRS_5Y
+    instrument_type: INTEREST_RATE_SWAP
+    desk_id: TD-RATES
+    description: Synthetic USD five-year vanilla interest-rate swap.
+    currency: USD
+    underlier_or_issuer: USD_OIS_CURVE
+    maturity_or_tenor: 5Y
+    notional: 2000000
+    reference_value: 12500
+    trading_book_flag: true
+    optionality_flag: false
+    exotic_flag: false
+    securitisation_flag: false
+    primary_risk_class: GIRR
+    drc_relevant: false
+    rrao_candidate: false
+    status: ACTIVE_SYNTHETIC
+    notes: Selected for future GIRR delta risk-factor mapping.
+  - instrument_id: SYN_EQ_INDEX
+    instrument_type: EQUITY_INDEX
+    desk_id: TD-EQUITY
+    description: Synthetic SPX-like cash equity or ETF position.
+    currency: USD
+    underlier_or_issuer: SYN_SPX_INDEX
+    maturity_or_tenor: not_applicable
+    notional: 750000
+    reference_value: 750000
+    trading_book_flag: true
+    optionality_flag: false
+    exotic_flag: false
+    securitisation_flag: false
+    primary_risk_class: EQUITY
+    drc_relevant: false
+    rrao_candidate: false
+    status: ACTIVE_SYNTHETIC
+    notes: Selected for future equity delta risk-factor mapping.
+  - instrument_id: SYN_EQ_CALL
+    instrument_type: EQUITY_OPTION
+    desk_id: TD-EQUITY
+    description: Synthetic SPX-like vanilla European call option.
+    currency: USD
+    underlier_or_issuer: SYN_SPX_INDEX
+    maturity_or_tenor: 1Y
+    notional: 500000
+    reference_value: 42000
+    trading_book_flag: true
+    optionality_flag: true
+    exotic_flag: false
+    securitisation_flag: false
+    primary_risk_class: EQUITY
+    drc_relevant: false
+    rrao_candidate: false
+    status: ACTIVE_SYNTHETIC
+    notes: Vanilla optionality prepared for future delta, vega and curvature treatment.
+  - instrument_id: SYN_EURUSD_FWD
+    instrument_type: FX_FORWARD
+    desk_id: TD-FX
+    description: Synthetic EUR/USD FX forward.
+    currency: USD
+    underlier_or_issuer: EURUSD
+    maturity_or_tenor: 6M
+    notional: 1000000
+    reference_value: 8000
+    trading_book_flag: true
+    optionality_flag: false
+    exotic_flag: false
+    securitisation_flag: false
+    primary_risk_class: FX
+    drc_relevant: false
+    rrao_candidate: false
+    status: ACTIVE_SYNTHETIC
+    notes: Selected for future FX delta risk-factor mapping.
+  - instrument_id: SYN_EURUSD_CALL
+    instrument_type: FX_OPTION
+    desk_id: TD-FX
+    description: Synthetic EUR/USD vanilla European call option.
+    currency: USD
+    underlier_or_issuer: EURUSD
+    maturity_or_tenor: 1Y
+    notional: 750000
+    reference_value: 36000
+    trading_book_flag: true
+    optionality_flag: true
+    exotic_flag: false
+    securitisation_flag: false
+    primary_risk_class: FX
+    drc_relevant: false
+    rrao_candidate: false
+    status: ACTIVE_SYNTHETIC
+    notes: Vanilla optionality prepared for future delta, vega and curvature treatment.
+  - instrument_id: SYN_CORP_BOND
+    instrument_type: CORPORATE_BOND
+    desk_id: TD-CREDIT
+    description: Synthetic non-securitisation corporate bond exposure.
+    currency: USD
+    underlier_or_issuer: SYN_CORP_A
+    maturity_or_tenor: 3Y
+    notional: 600000
+    reference_value: 570000
+    trading_book_flag: true
+    optionality_flag: false
+    exotic_flag: false
+    securitisation_flag: false
+    primary_risk_class: CREDIT
+    drc_relevant: true
+    rrao_candidate: false
+    status: ACTIVE_SYNTHETIC
+    notes: Explicit future non-securitisation DRC preparation; no DRC capital calculation.
+  - instrument_id: SYN_EQ_BARRIER
+    instrument_type: EQUITY_BARRIER_OPTION
+    desk_id: TD-EQUITY
+    description: Synthetic SPX-like barrier option for RRAO preparation.
+    currency: USD
+    underlier_or_issuer: SYN_SPX_INDEX
+    maturity_or_tenor: 1Y
+    notional: 250000
+    reference_value: 18500
+    trading_book_flag: true
+    optionality_flag: true
+    exotic_flag: true
+    securitisation_flag: false
+    primary_risk_class: EQUITY
+    drc_relevant: false
+    rrao_candidate: true
+    status: ACTIVE_SYNTHETIC
+    notes: Path-dependent example flagged explicitly for future RRAO analysis.
+
+risk_factors:
+  - risk_factor_id: RF_GIRR_USD_5Y
+    risk_class: GIRR
+    risk_factor_type: risk_free_yield_curve_tenor
+    bucket_or_category: USD
+    tenor_or_vertex: 5Y
+    currency: USD
+    underlier_or_issuer: USD_OIS_CURVE
+    source_instrument_ids: [SYN_USD_GOVT_5Y, SYN_USD_IRS_5Y]
+    required_sensitivity_types: [delta]
+    future_rfet_scope: IN_SCOPE_LATER
+    status: ACTIVE_SYNTHETIC
+    source_id: BIS_MAR21
+    source_paragraph_or_table: MAR21.8
+    notes: Taxonomy record only; no sensitivity value is calculated in Phase 1.
+  - risk_factor_id: RF_EQUITY_SPX_SPOT
+    risk_class: EQUITY
+    risk_factor_type: equity_spot
+    bucket_or_category: selected_index
+    tenor_or_vertex: spot
+    currency: USD
+    underlier_or_issuer: SYN_SPX_INDEX
+    source_instrument_ids: [SYN_EQ_INDEX, SYN_EQ_CALL, SYN_EQ_BARRIER]
+    required_sensitivity_types: [delta, curvature]
+    future_rfet_scope: IN_SCOPE_LATER
+    status: ACTIVE_SYNTHETIC
+    source_id: BIS_MAR21
+    source_paragraph_or_table: MAR21.12; MAR21.72
+    notes: Selected equity spot risk-factor taxonomy for later phases.
+  - risk_factor_id: RF_EQUITY_SPX_VOL_1Y
+    risk_class: EQUITY
+    risk_factor_type: equity_implied_volatility
+    bucket_or_category: selected_index
+    tenor_or_vertex: 1Y
+    currency: USD
+    underlier_or_issuer: SYN_SPX_INDEX
+    source_instrument_ids: [SYN_EQ_CALL, SYN_EQ_BARRIER]
+    required_sensitivity_types: [vega]
+    future_rfet_scope: IN_SCOPE_LATER
+    status: ACTIVE_SYNTHETIC
+    source_id: BIS_MAR21
+    source_paragraph_or_table: MAR21.25-MAR21.28
+    notes: Required only for optional equity instruments in later phases.
+  - risk_factor_id: RF_FX_EURUSD_SPOT
+    risk_class: FX
+    risk_factor_type: fx_spot
+    bucket_or_category: EUR
+    tenor_or_vertex: spot
+    currency: USD
+    underlier_or_issuer: EURUSD
+    source_instrument_ids: [SYN_EURUSD_FWD, SYN_EURUSD_CALL]
+    required_sensitivity_types: [delta, curvature]
+    future_rfet_scope: IN_SCOPE_LATER
+    status: ACTIVE_SYNTHETIC
+    source_id: BIS_MAR21
+    source_paragraph_or_table: MAR21.14; MAR21.24
+    notes: Selected FX spot risk-factor taxonomy for later phases.
+  - risk_factor_id: RF_FX_EURUSD_VOL_1Y
+    risk_class: FX
+    risk_factor_type: fx_implied_volatility
+    bucket_or_category: EUR
+    tenor_or_vertex: 1Y
+    currency: USD
+    underlier_or_issuer: EURUSD
+    source_instrument_ids: [SYN_EURUSD_CALL]
+    required_sensitivity_types: [vega]
+    future_rfet_scope: IN_SCOPE_LATER
+    status: ACTIVE_SYNTHETIC
+    source_id: BIS_MAR21
+    source_paragraph_or_table: MAR21.25-MAR21.28
+    notes: Required only for optional FX instruments in later phases.
+  - risk_factor_id: RF_CREDIT_SYN_CORP_A_DEFAULT
+    risk_class: CREDIT
+    risk_factor_type: issuer_default_reference
+    bucket_or_category: non_securitisation_corporate
+    tenor_or_vertex: 3Y
+    currency: USD
+    underlier_or_issuer: SYN_CORP_A
+    source_instrument_ids: [SYN_CORP_BOND]
+    required_sensitivity_types: [drc_preparation]
+    future_rfet_scope: OUT_OF_PHASE1_SCOPE
+    status: ACTIVE_SYNTHETIC
+    source_id: BIS_MAR22
+    source_paragraph_or_table: MAR22.1; MAR22.9-MAR22.26
+    notes: Future non-securitisation DRC reference only; no DRC amount is calculated.

@@ -1,0 +1,9 @@
+instrument_type,risk_class,risk_factor_type,delta_required,vega_required,curvature_required,drc_relevant,rrao_relevant,source_id,source_paragraph_or_table,implementation_phase,notes
+GOVERNMENT_BOND,GIRR,risk_free_yield_curve_tenor,true,false,false,false,false,BIS_MAR21,MAR21.8; MAR21.19,Phase 2,Future sensitivity requirement only; no value calculated in Phase 1
+INTEREST_RATE_SWAP,GIRR,risk_free_yield_curve_tenor,true,false,false,false,false,BIS_MAR21,MAR21.8; MAR21.19,Phase 2,Future sensitivity requirement only; no value calculated in Phase 1
+EQUITY_INDEX,EQUITY,equity_spot,true,false,false,false,false,BIS_MAR21,MAR21.12; MAR21.21; MAR21.72,Phase 2,Future equity delta mapping only
+EQUITY_OPTION,EQUITY,equity_spot_and_volatility,true,true,true,false,false,BIS_MAR21,MAR21.21; MAR21.25-MAR21.28,Phase 2,Vanilla optionality requires future delta/vega/curvature treatment
+FX_FORWARD,FX,fx_spot,true,false,false,false,false,BIS_MAR21,MAR21.14; MAR21.24,Phase 2,Future FX delta mapping only
+FX_OPTION,FX,fx_spot_and_volatility,true,true,true,false,false,BIS_MAR21,MAR21.24; MAR21.25-MAR21.28,Phase 2,Vanilla optionality requires future delta/vega/curvature treatment
+CORPORATE_BOND,CREDIT,issuer_default_reference,false,false,false,true,false,BIS_MAR22,MAR22.1; MAR22.9-MAR22.26,Phase 4,Future non-securitisation DRC preparation only
+EQUITY_BARRIER_OPTION,EQUITY,equity_spot_and_volatility,true,true,true,false,true,BIS_MAR23,MAR23.2-MAR23.5,Phase 4,Path-dependent exotic flagged for future RRAO analysis

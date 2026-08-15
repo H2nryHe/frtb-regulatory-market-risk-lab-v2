@@ -1,0 +1,5 @@
+parameter_id,component,parameter_name,value,unit,source_id,source_paragraph_or_table,effective_date,implementation_status,notes
+TAXONOMY_SUPPORTED_RISK_CLASSES,Phase1 taxonomy,Selected supported primary risk classes,GIRR|EQUITY|FX|CREDIT,identifier set,BIS_MAR21|BIS_MAR22,MAR21.8; MAR21.12; MAR21.14; MAR22.1,2023-01-01,PLANNED,Taxonomy identifiers only; no regulatory risk weights or capital formulas implemented
+TAXONOMY_SELECTED_SENSITIVITY_TYPES,Phase1 taxonomy,Future selected sensitivity treatment labels,delta|vega|curvature,identifier set,BIS_MAR21,MAR21.1; MAR21.3-MAR21.5,2023-01-01,PLANNED,Labels for future treatment requirements only; no sensitivity values calculated
+TAXONOMY_DRC_PREPARATION_FLAG,Phase1 taxonomy,Future non-securitisation DRC relevance flag,drc_relevant,boolean metadata,BIS_MAR22,MAR22.1; MAR22.9-MAR22.26,2023-01-01,PLANNED,Boolean mapping flag only; no DRC amount calculated
+TAXONOMY_RRAO_PREPARATION_FLAG,Phase1 taxonomy,Future RRAO candidate flag,rrao_candidate,boolean metadata,BIS_MAR23,MAR23.2-MAR23.5,2023-01-01,PLANNED,Boolean mapping flag only; no RRAO amount calculated
