@@ -38,10 +38,10 @@ desks:
     notes: Uses deterministic notional metadata only; no live market data.
   - desk_id: TD-CREDIT
     desk_name: Synthetic Credit Desk
-    description: Synthetic non-securitisation corporate credit position for DRC preparation.
+    description: Synthetic CSR non-securitisation corporate credit position for DRC preparation.
     portfolio_scope: synthetic educational portfolio
     trading_book_scope: selected trading-book example
-    planned_sa_scope: non-securitisation DRC preparation
+    planned_sa_scope: CSR non-securitisation taxonomy and DRC preparation
     planned_ima_scope: not in Phase 1 scope
     status: ACTIVE_SYNTHETIC
     notes: No DRC capital is calculated in Phase 1.
@@ -158,7 +158,7 @@ instruments:
   - instrument_id: SYN_CORP_BOND
     instrument_type: CORPORATE_BOND
     desk_id: TD-CREDIT
-    description: Synthetic non-securitisation corporate bond exposure.
+    description: Synthetic CSR non-securitisation corporate bond exposure.
     currency: USD
     underlier_or_issuer: SYN_CORP_A
     maturity_or_tenor: 3Y
@@ -168,11 +168,11 @@ instruments:
     optionality_flag: false
     exotic_flag: false
     securitisation_flag: false
-    primary_risk_class: CREDIT
+    primary_risk_class: CSR_NON_SECURITISATION
     drc_relevant: true
     rrao_candidate: false
     status: ACTIVE_SYNTHETIC
-    notes: Explicit future non-securitisation DRC preparation; no DRC capital calculation.
+    notes: Explicit CSR non-securitisation taxonomy and future DRC preparation; no DRC capital calculation.
   - instrument_id: SYN_EQ_BARRIER
     instrument_type: EQUITY_BARRIER_OPTION
     desk_id: TD-EQUITY
@@ -263,8 +263,8 @@ risk_factors:
     source_id: BIS_MAR21
     source_paragraph_or_table: MAR21.25-MAR21.28
     notes: Required only for optional FX instruments in later phases.
-  - risk_factor_id: RF_CREDIT_SYN_CORP_A_DEFAULT
-    risk_class: CREDIT
+  - risk_factor_id: RF_CSR_SYN_CORP_A_DEFAULT
+    risk_class: CSR_NON_SECURITISATION
     risk_factor_type: issuer_default_reference
     bucket_or_category: non_securitisation_corporate
     tenor_or_vertex: 3Y
@@ -276,4 +276,4 @@ risk_factors:
     status: ACTIVE_SYNTHETIC
     source_id: BIS_MAR22
     source_paragraph_or_table: MAR22.1; MAR22.9-MAR22.26
-    notes: Future non-securitisation DRC reference only; no DRC amount is calculated.
+    notes: Future non-securitisation DRC reference only; DRC remains separate from SBM risk class taxonomy.

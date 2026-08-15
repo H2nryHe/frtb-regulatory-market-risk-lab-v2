@@ -1,8 +1,9 @@
 # Basel Scope Crosswalk
 
 Scope document for the current phase gate. It records completed source
-governance and Phase 1 taxonomy/mapping work before any capital formula or
-eligibility calculation is implemented.
+governance, Phase 1 taxonomy/mapping work, and selected Phase 2 raw/weighted
+sensitivity preparation before any SBM aggregation or capital formula is
+implemented.
 
 | Basel chapter / paragraph area | Concept | Planned project phase | Implementation scope | Explicitly omitted scope | Source ID |
 | --- | --- | --- | --- | --- | --- |
@@ -18,8 +19,13 @@ eligibility calculation is implemented.
 | MAR20.1-MAR20.5 and MAR21 selected taxonomy paragraphs | Trading-book scope representation | Phase 1 | Implemented deterministic synthetic instrument-to-desk scope metadata and validation controls | Legal entity scope, supervisory reporting and production trading-book governance | BIS_MAR20; BIS_MAR21 |
 | MAR21.8, MAR21.12, MAR21.14, MAR21.19, MAR21.21, MAR21.24-MAR21.28 | Instrument taxonomy and risk-factor mapping | Phase 1 | Implemented selected GIRR, Equity and FX taxonomy records needed for later phases | Full Basel risk-factor universe and risk-weight tables | BIS_MAR21 |
 | MAR21.1-MAR21.7 and MAR21.15-MAR21.38 | Sensitivity requirement mapping | Phase 1 | Implemented metadata describing future delta, vega and curvature treatment requirements | Sensitivity values, risk weights and SBM aggregation | BIS_MAR21 |
-| MAR22.1 and MAR22.9-MAR22.26 | Credit / DRC preparation | Phase 1 | Implemented explicit non-securitisation corporate credit flagging for later DRC work | DRC JTD, netting, HBR, risk weights and capital calculation | BIS_MAR22 |
+| MAR21.9; MAR22.1 and MAR22.9-MAR22.26 | CSR non-securitisation / DRC preparation | Phase 1 | Implemented explicit CSR non-securitisation taxonomy with separate DRC relevance flag for later DRC work | DRC JTD, netting, HBR, risk weights and capital calculation | BIS_MAR21; BIS_MAR22 |
 | MAR23.2-MAR23.5 | Exotic / RRAO preparation | Phase 1 | Implemented explicit path-dependent barrier-option flagging for later RRAO work | RRAO gross-notional charge and residual-risk capital calculation | BIS_MAR23 |
+| MAR21.8, MAR21.19, MAR21.41-MAR21.42 | GIRR delta / PV01 and 5Y bucket weighting | Phase 2 | Implemented selected USD 5Y GIRR raw PV01 sensitivities and weighted sensitivities for `SYN_USD_GOVT_5Y` and `SYN_USD_IRS_5Y` | Within-bucket aggregation, cross-bucket aggregation, correlation scenarios and SBM capital | BIS_MAR21 |
+| MAR21.12, MAR21.21, MAR21.31, MAR21.33, MAR21.72, MAR21.77 | Equity spot delta and bucket 12 weighting | Phase 2 | Implemented selected synthetic index bucket mapping, raw equity spot delta sensitivities and weighted sensitivities for `SYN_EQ_INDEX` and `SYN_EQ_CALL` | Equity repo-rate sensitivity, full equity universe, aggregation and SBM capital | BIS_MAR21 |
+| MAR21.14, MAR21.24, MAR21.86-MAR21.88 | FX delta and base weighting | Phase 2 | Implemented selected EUR/USD raw delta sensitivities and weighted sensitivities using USD reporting currency and base FX risk weight | Base-currency approach, discretionary specified-currency-pair reduction, aggregation and SBM capital | BIS_MAR21 |
+| MAR21.12, MAR21.14, MAR21.25, MAR21.28, MAR21.90-MAR21.92 | Equity and FX vega | Phase 2 | Implemented selected option-level regulatory vega transformation and weighted sensitivities for `SYN_EQ_CALL` and `SYN_EURUSD_CALL` | Vega aggregation, correlations and vega capital | BIS_MAR21 |
+| MAR21.96-MAR21.101 | Curvature preparation | Phase 2 | Frozen selected provenance only; curvature remains verified not implemented | CVR, curvature bucket capital, cross-bucket curvature aggregation and scenario capital | BIS_MAR21 |
 
 Explicit out-of-scope items for this project version: securitisation DRC, CTP,
 full seven-risk-class SBM, full NMRF SES capital engine, full bank-wide IMCC

@@ -1,0 +1,77 @@
+metadata:
+  fixture_id: canonical_phase2_synthetic_market_state
+  valuation_date: "2026-08-15"
+  synthetic: true
+  reporting_currency: USD
+  quote_conventions:
+    eurusd: USD per EUR
+    rates: decimal annual continuously compounded zero rates
+    volatility: annual implied volatility in decimal units
+  units:
+    currency_amount: USD unless explicitly stated otherwise
+    decimal_rate: "0.01 means 1%"
+    basis_point: "0.0001 absolute rate"
+    relative_shock: "0.01 means 1% relative move"
+    volatility_point: "0.01 means one volatility point"
+
+rates:
+  USD:
+    zero_curve:
+      "0.5Y": 0.0300
+      "1Y": 0.0310
+      "2Y": 0.0320
+      "3Y": 0.0330
+      "5Y": 0.0340
+      "10Y": 0.0360
+  EUR:
+    zero_curve:
+      "0.5Y": 0.0200
+      "1Y": 0.0210
+
+equity:
+  SYN_SPX_INDEX:
+    spot: 5000.0
+    dividend_yield: 0.0125
+    repo_rate: 0.0100
+    implied_volatility:
+      "1Y": 0.2000
+    synthetic_bucket_assumption: large_market_cap_advanced_economy_index
+    phase2_bucket: EQUITY_BUCKET_12
+
+fx:
+  EURUSD:
+    spot: 1.1000
+    domestic_currency: USD
+    foreign_currency: EUR
+    domestic_rate: 0.0310
+    foreign_rate: 0.0210
+    implied_volatility:
+      "1Y": 0.1200
+
+instrument_terms:
+  SYN_USD_GOVT_5Y:
+    coupon_rate: 0.0350
+    payment_frequency_per_year: 1
+    maturity_years: 5.0
+  SYN_USD_IRS_5Y:
+    fixed_rate: 0.0310
+    payment_frequency_per_year: 1
+    maturity_years: 5.0
+    receive_fixed: true
+  SYN_EQ_INDEX:
+    units: 150.0
+  SYN_EQ_CALL:
+    option_type: call
+    strike: 5100.0
+    maturity_years: 1.0
+    units: 100.0
+  SYN_EURUSD_FWD:
+    foreign_notional: 1000000.0
+    strike: 1.0950
+    maturity_years: 0.5
+    long_foreign: true
+  SYN_EURUSD_CALL:
+    option_type: call
+    foreign_notional: 750000.0
+    strike: 1.1200
+    maturity_years: 1.0

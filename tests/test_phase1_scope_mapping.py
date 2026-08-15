@@ -21,7 +21,7 @@ INSTRUMENT_INVENTORY = REPO_ROOT / "governance" / "instrument_inventory.csv"
 RISK_FACTOR_INVENTORY = REPO_ROOT / "governance" / "risk_factor_inventory.csv"
 SENSITIVITY_MAPPING = REPO_ROOT / "regulatory" / "sensitivity_mapping.csv"
 
-SUPPORTED_RISK_CLASSES = {"GIRR", "EQUITY", "FX", "CREDIT"}
+SUPPORTED_RISK_CLASSES = {"GIRR", "EQUITY", "FX", "CSR_NON_SECURITISATION"}
 
 
 @pytest.fixture()
@@ -110,7 +110,7 @@ def test_fx_instruments_map_consistently(portfolio: dict) -> None:
 
 def test_corporate_credit_drc_candidate_is_explicit(portfolio: dict) -> None:
     corp = instrument_by_id(portfolio)["SYN_CORP_BOND"]
-    assert corp["primary_risk_class"] == "CREDIT"
+    assert corp["primary_risk_class"] == "CSR_NON_SECURITISATION"
     assert corp["drc_relevant"] is True
     assert corp["securitisation_flag"] is False
 

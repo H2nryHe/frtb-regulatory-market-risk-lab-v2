@@ -11,15 +11,16 @@ RFET/modellability, PLA and regulatory VaR backtesting.
 The project is source-traceable: regulatory parameters and scope decisions must
 reference frozen official sources before implementation.
 
-Current development status: Phase 1 — Trading Book Scope, Instrument Taxonomy
-& Risk-Factor Inventory.
+Current development status: Phase 2 — Regulatory Sensitivities, Bucketing &
+Parameter Freeze.
 
 The current architecture establishes the deterministic chain:
 
 ```text
-synthetic portfolio -> trading desk -> risk class -> risk factor -> future sensitivity treatment
+source -> scope -> instrument -> risk factor -> regulatory sensitivity -> bucket / risk weight -> future aggregation -> future capital
 ```
 
-Phase 1 adds the canonical synthetic portfolio, desk inventory, instrument
-inventory, risk-factor inventory, sensitivity requirement mapping, and
-validation controls. It does not calculate FRTB capital.
+Phase 2 adds deterministic synthetic market inputs, selected GIRR/Equity/FX
+delta sensitivities, selected Equity/FX vega sensitivities, selected bucket
+mapping, and source-linked risk weights. It does not calculate within-bucket
+capital, cross-bucket capital, correlation scenarios, DRC, RRAO or IMA results.

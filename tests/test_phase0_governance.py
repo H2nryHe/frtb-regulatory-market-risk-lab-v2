@@ -117,7 +117,8 @@ def test_parameter_crosswalk_has_required_columns() -> None:
 def test_no_phase0_parameter_marked_implemented() -> None:
     with PARAMETER_CROSSWALK.open(newline="") as handle:
         rows = list(csv.DictReader(handle))
-    assert all(row["implementation_status"] != "IMPLEMENTED" for row in rows)
+    phase0_rows = [row for row in rows if row["component"].lower().startswith("phase0")]
+    assert all(row["implementation_status"] != "IMPLEMENTED" for row in phase0_rows)
 
 
 def test_private_control_files_are_ignored() -> None:

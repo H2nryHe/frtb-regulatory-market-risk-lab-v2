@@ -1,0 +1,75 @@
+metadata:
+  config_id: selected_phase2_sbm_parameters
+  source_id: BIS_MAR21
+  source_url: https://www.bis.org/basel_framework/chapter/MAR/21.htm
+  effective_date: "2023-01-01"
+  last_updated_date: "2026-03-23"
+  status: Current
+  selected_scope_only: true
+  notes: >
+    Selected Basel MAR21 parameters required for Phase 2 raw and weighted
+    sensitivities. No bucket aggregation, correlation scenarios or capital
+    calculation is configured here.
+
+conventions:
+  reporting_currency: USD
+  girr_delta_bump_absolute: 0.0001
+  equity_delta_shock_relative: 0.01
+  fx_delta_shock_relative: 0.01
+  volatility_bump_absolute_for_model_vega: 0.0001
+  weighted_sensitivity_formula: raw_sensitivity * risk_weight_decimal
+
+girr:
+  source_paragraphs: [MAR21.8, MAR21.19, MAR21.41, MAR21.42]
+  prescribed_delta_tenors_years: [0.25, 0.5, 1.0, 2.0, 3.0, 5.0, 10.0, 15.0, 20.0, 30.0]
+  delta_risk_weights:
+    "0.25": 0.017
+    "0.5": 0.017
+    "1.0": 0.016
+    "2.0": 0.013
+    "3.0": 0.012
+    "5.0": 0.011
+    "10.0": 0.011
+    "15.0": 0.011
+    "20.0": 0.011
+    "30.0": 0.011
+  selected_tenors_years: [5.0]
+  bucket_rule: currency
+  specified_currency_reduction_used: false
+
+equity:
+  source_paragraphs: [MAR21.12, MAR21.21, MAR21.31, MAR21.33, MAR21.72, MAR21.77]
+  selected_bucket:
+    bucket_id: EQUITY_BUCKET_12
+    bucket_number: 12
+    description: Large market cap advanced economy equity indices, non-sector specific.
+    synthetic_assumption: >
+      SYN_SPX_INDEX is a synthetic recognised broad index with at least 75%
+      large-cap advanced-economy constituents for selected educational mapping.
+  delta_spot_risk_weight: 0.15
+  repo_rate_sensitivity_implemented: false
+  repo_rate_limitation: Repo-rate sensitivity is excluded from selected Phase 2 scope.
+
+fx:
+  source_paragraphs: [MAR21.14, MAR21.24, MAR21.86, MAR21.87, MAR21.88]
+  selected_bucket_rule: exchange_rate_between_instrument_currency_and_reporting_currency
+  reporting_currency: USD
+  eurusd_quote: USD per EUR
+  delta_risk_weight: 0.15
+  specified_currency_pair_reduction_used: false
+
+vega:
+  source_paragraphs: [MAR21.12, MAR21.14, MAR21.25, MAR21.28, MAR21.38, MAR21.90, MAR21.91, MAR21.92]
+  option_maturity_tenors_years: [0.5, 1.0, 3.0, 5.0, 10.0]
+  maturity_mapping_rule: linear_allocation_to_bracketing_prescribed_tenors
+  equity_large_cap_indices:
+    liquidity_horizon_days: 20
+    risk_weight: 0.7778
+  fx:
+    liquidity_horizon_days: 40
+    risk_weight: 1.0
+
+curvature:
+  source_paragraphs: [MAR21.96, MAR21.98, MAR21.99]
+  status: VERIFIED_NOT_IMPLEMENTED
+  notes: Curvature provenance is retained for future phases; no curvature risk position or capital is calculated in Phase 2.
