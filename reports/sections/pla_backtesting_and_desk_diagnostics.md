@@ -13,7 +13,8 @@ data. RTPL is constructed from the declared risk-management-model factors for
 each desk. The PLA tests use the most recent 250 observations and the Spearman
 and Kolmogorov-Smirnov thresholds from MAR32. Desk-level VaR backtesting uses
 one-day 97.5% and 99% VaR, calibrated to the most recent 12 months and compared
-against both APL and HPL.
+against both APL and HPL. Under MAR32.19, desk-level fallback triggers at more
+than 12 exceptions for 99% VaR or at 30 or more exceptions for 97.5% VaR.
 
 ## Desk Model Specifications
 

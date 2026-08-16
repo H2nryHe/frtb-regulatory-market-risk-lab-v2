@@ -57,8 +57,11 @@ def desk_backtest_threshold(confidence_level: float) -> int:
 
 
 def threshold_status(confidence_level: float, overall_exceptions: int) -> str:
-    threshold = desk_backtest_threshold(confidence_level)
-    return "BREACH" if overall_exceptions > threshold else "PASS"
+    if confidence_level == 0.99:
+        return "BREACH" if overall_exceptions > 12 else "PASS"
+    if confidence_level == 0.975:
+        return "BREACH" if overall_exceptions >= 30 else "PASS"
+    raise ValueError(f"Unsupported desk-level confidence level: {confidence_level}")
 
 
 def backtesting_sample(

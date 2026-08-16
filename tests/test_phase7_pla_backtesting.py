@@ -216,9 +216,12 @@ def test_historical_var_exception_logic_and_thresholds() -> None:
     assert is_exception(-100.0, None) is True
     assert desk_backtest_threshold(0.99) == 12
     assert desk_backtest_threshold(0.975) == 30
+    assert threshold_status(0.99, 11) == "PASS"
     assert threshold_status(0.99, 12) == "PASS"
     assert threshold_status(0.99, 13) == "BREACH"
-    assert threshold_status(0.975, 30) == "PASS"
+    assert threshold_status(0.975, 28) == "PASS"
+    assert threshold_status(0.975, 29) == "PASS"
+    assert threshold_status(0.975, 30) == "BREACH"
     assert threshold_status(0.975, 31) == "BREACH"
     assert threshold_status(0.99, 10) == "PASS"
 
@@ -243,6 +246,9 @@ def test_backtesting_calibration_excludes_test_day_and_counts_apl_hpl_separately
     assert rates_975.overall_exceptions == max(
         rates_975.apl_exceptions,
         rates_975.hpl_exceptions,
+    )
+    assert rates_975.overall_exceptions != (
+        rates_975.apl_exceptions + rates_975.hpl_exceptions
     )
 
 
@@ -342,6 +348,10 @@ def test_phase7_parameter_provenance_is_complete() -> None:
     for parameter_id in official:
         assert rows[parameter_id]["source_id"] == "BIS_MAR32"
         assert rows[parameter_id]["source_paragraph_or_table"].startswith("MAR32")
+    assert rows["DESK_BT_99_THRESHOLD"]["value"] == ">12"
+    assert rows["DESK_BT_975_THRESHOLD"]["value"] == ">=30"
+    stale_975_boundary = "greater than " + "30"
+    assert stale_975_boundary not in rows["DESK_BT_975_THRESHOLD"]["notes"]
     assert rows["DESK_PLA_AMBER_SURCHARGE_STATUS"]["implementation_status"] == "DEFERRED"
     for parameter_id in project_choices:
         assert rows[parameter_id]["source_id"] == "PROJECT_MODEL_CHOICE"
