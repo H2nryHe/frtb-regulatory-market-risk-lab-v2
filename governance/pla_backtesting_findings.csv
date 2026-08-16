@@ -1,0 +1,3 @@
+finding_id,desk_id,finding_type,severity,description,evidence,diagnostic_impact,status,remediation_required,notes
+PLA-BT-FIND-001,TD-FX,PLA_RED_SPEARMAN_AND_KS,HIGH,Synthetic FX Desk fails Phase 7 PLA red-zone thresholds on both Spearman and KS metrics,"Spearman=-0.9972781644506312; KS=0.20800000000000002; PLA zone=RED",SIMULATED_SA_FALLBACK_REQUIRED,OPEN,true,Driven by declared RTPL sign mismatch and omitted FX volatility feature
+PLA-BT-FIND-002,TD-FX,RTPL_FACTOR_GAP,HIGH,Synthetic FX Desk RTPL omits an HPL pricing factor and uses an intentionally adverse spot proxy,"HPL factors=RF_FX_EURUSD_SPOT|RF_FX_EURUSD_VOL_1Y; RTPL factors=RF_FX_EURUSD_SPOT",PLA_MODEL_REMEDIATION_REQUIRED,OPEN,true,NMRF candidate status alone is not treated as a fallback trigger

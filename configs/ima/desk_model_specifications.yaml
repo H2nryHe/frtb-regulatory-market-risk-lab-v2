@@ -1,0 +1,116 @@
+metadata:
+  config_id: phase7_predeclared_desk_model_specifications
+  source_id: BIS_MAR32
+  evaluation_date: "2026-08-14"
+  frozen_before_metric_evaluation: true
+  freeze_date: "2026-08-15"
+  synthetic: true
+  notes: >
+    Deterministic Phase 7 desk specifications. HPL, RTPL, APL and VaR
+    mechanics are predeclared before PLA/backtesting results are evaluated.
+
+global_rules:
+  pnl_sign_convention: positive_gain_negative_loss
+  hpl_static_positions: true
+  hpl_excludes_intraday_trading: true
+  apl_label: SYNTHETIC_APL
+  pla_sample_observations: 250
+  backtesting_sample_observations: 250
+  var_calibration_window: trailing_calendar_12_months_excluding_test_day
+  var_model: HISTORICAL_SIMULATION_EQUAL_WEIGHT
+  var_quantile_convention: ceil_confidence_order_statistic_on_positive_losses
+  fees_commissions_and_cva_dva_scope: EXCLUDED
+  missing_data_rule: MISSING_PNL_OR_VAR_COUNTS_AS_OUTLIER
+
+desk_models:
+  TD-RATES:
+    desk_name: Synthetic Rates Desk
+    selected_phase7_scope: true
+    hpl_valuation_treatment: STATIC_POSITIONS_FULL_SELECTED_SYNTHETIC_VALUATION
+    rtpl_valuation_treatment: HIGH_FIDELITY_LINEAR_RATE_RISK_MODEL
+    apl_construction_treatment: HPL_PLUS_SMALL_DETERMINISTIC_SYNTHETIC_INTRADAY
+    included_rtpl_risk_factors:
+      - RF_GIRR_USD_5Y_RATE
+    hpl_pricing_factors:
+      - RF_GIRR_USD_5Y_RATE
+    nmrf_candidate_factors: []
+    omitted_model_features: []
+    factor_exposures:
+      RF_GIRR_USD_5Y_RATE: -42000000.0
+    rtpl_factor_weights:
+      RF_GIRR_USD_5Y_RATE: -42000000.0
+    apl_intraday_scale: 0.03
+    apl_intraday_frequency: 17
+    expected_qualitative_challenge_type: HIGH_ALIGNMENT
+    notes: >
+      Designed as high-fidelity rates desk with no intentional RTPL factor gap.
+  TD-EQUITY:
+    desk_name: Synthetic Equity Desk
+    selected_phase7_scope: true
+    hpl_valuation_treatment: STATIC_POSITIONS_FULL_SELECTED_SYNTHETIC_VALUATION
+    rtpl_valuation_treatment: SPOT_PLUS_SCALED_VOLATILITY_PROXY
+    apl_construction_treatment: HPL_PLUS_SMALL_DETERMINISTIC_SYNTHETIC_INTRADAY
+    included_rtpl_risk_factors:
+      - RF_EQUITY_SPX_SPOT
+      - RF_EQUITY_SPX_VOL_1Y
+    hpl_pricing_factors:
+      - RF_EQUITY_SPX_SPOT
+      - RF_EQUITY_SPX_VOL_1Y
+    nmrf_candidate_factors:
+      - RF_EQUITY_SPX_VOL_1Y
+    omitted_model_features:
+      - VOLATILITY_EXPOSURE_SCALED_TO_PROXY
+    factor_exposures:
+      RF_EQUITY_SPX_SPOT: 2400000.0
+      RF_EQUITY_SPX_VOL_1Y: 500000.0
+    rtpl_factor_weights:
+      RF_EQUITY_SPX_SPOT: 2350000.0
+      RF_EQUITY_SPX_VOL_1Y: 150000.0
+    apl_intraday_scale: 0.04
+    apl_intraday_frequency: 13
+    expected_qualitative_challenge_type: MODERATE_VALUATION_SIMPLIFICATION
+    notes: >
+      Includes an NMRF candidate in RTPL because NMRF treatment is separate from
+      risk-management-model factor inclusion.
+  TD-FX:
+    desk_name: Synthetic FX Desk
+    selected_phase7_scope: true
+    hpl_valuation_treatment: STATIC_POSITIONS_FULL_SELECTED_SYNTHETIC_VALUATION
+    rtpl_valuation_treatment: SPOT_PROXY_WITH_OMITTED_FX_VOLATILITY
+    apl_construction_treatment: HPL_PLUS_SMALL_DETERMINISTIC_SYNTHETIC_INTRADAY
+    included_rtpl_risk_factors:
+      - RF_FX_EURUSD_SPOT
+    hpl_pricing_factors:
+      - RF_FX_EURUSD_SPOT
+      - RF_FX_EURUSD_VOL_1Y
+    nmrf_candidate_factors:
+      - RF_FX_EURUSD_SPOT
+    omitted_model_features:
+      - FX_VOLATILITY_FACTOR_OMITTED_FROM_RTPL
+      - SPOT_RISK_PROXY_SIGN_MISMATCH
+    factor_exposures:
+      RF_FX_EURUSD_SPOT: 3200000.0
+      RF_FX_EURUSD_VOL_1Y: -700000.0
+    rtpl_factor_weights:
+      RF_FX_EURUSD_SPOT: -1800000.0
+    apl_intraday_scale: 0.05
+    apl_intraday_frequency: 11
+    expected_qualitative_challenge_type: MATERIAL_RISK_MODEL_SIMPLIFICATION
+    notes: >
+      NMRF candidate status alone is not a desk fallback trigger; the material
+      RTPL simplification drives PLA diagnostics.
+  TD-CREDIT:
+    desk_name: Synthetic Credit Desk
+    selected_phase7_scope: false
+    hpl_valuation_treatment: OUT_OF_SELECTED_IMA_DIAGNOSTIC_SCOPE
+    rtpl_valuation_treatment: OUT_OF_SELECTED_IMA_DIAGNOSTIC_SCOPE
+    apl_construction_treatment: OUT_OF_SELECTED_IMA_DIAGNOSTIC_SCOPE
+    included_rtpl_risk_factors: []
+    hpl_pricing_factors: []
+    nmrf_candidate_factors: []
+    omitted_model_features:
+      - NO_CREDIT_SPREAD_IMA_RISK_MODEL_IMPLEMENTED
+    expected_qualitative_challenge_type: OUT_OF_SELECTED_IMA_DIAGNOSTIC_SCOPE
+    notes: >
+      Excluded because the project has not implemented a defensible selected
+      credit-spread IMA risk model.

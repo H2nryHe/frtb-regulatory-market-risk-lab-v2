@@ -401,19 +401,18 @@ def test_rfet_findings_are_open_and_include_required_failure_conditions() -> Non
     assert all(row["remediation_required"] == "true" for row in findings)
 
 
-def test_no_deferred_phase7_or_nmrf_capital_components_exist() -> None:
+def test_no_deferred_nmrf_capital_or_phase8_components_exist() -> None:
     forbidden = [
         REPO_ROOT / "src" / "frtb_lab" / "ima" / "imcc.py",
         REPO_ROOT / "src" / "frtb_lab" / "ima" / "nmrf.py",
         REPO_ROOT / "src" / "frtb_lab" / "ima" / "default_risk.py",
-        REPO_ROOT / "src" / "frtb_lab" / "ima" / "pla.py",
-        REPO_ROOT / "src" / "frtb_lab" / "ima" / "backtesting.py",
-        REPO_ROOT / "src" / "frtb_lab" / "eligibility",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "capital_aggregation.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "phase8.py",
         REPO_ROOT / "data" / "artifacts" / "ima_capital.csv",
         REPO_ROOT / "data" / "artifacts" / "nmrf_capital.csv",
-        REPO_ROOT / "data" / "artifacts" / "pla.csv",
-        REPO_ROOT / "data" / "artifacts" / "backtesting.csv",
-        REPO_ROOT / "data" / "artifacts" / "desk_eligibility.csv",
+        REPO_ROOT / "data" / "artifacts" / "phase8_bank_capital.csv",
+        REPO_ROOT / "data" / "artifacts" / "phase7_amber_surcharge.csv",
+        REPO_ROOT / "data" / "artifacts" / "phase7_bank_wide_backtesting.csv",
     ]
     assert not any(path.exists() for path in forbidden)
 
