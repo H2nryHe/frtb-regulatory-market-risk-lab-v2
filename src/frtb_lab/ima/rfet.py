@@ -371,7 +371,7 @@ def factor_treatment_diagnostic(results: list[RFETResult]) -> list[dict[str, Any
                     result.institutional_modellability_determination
                 ),
                 "diagnostic_label": "SIMULATED_RFET_FILTERED_ES_DIAGNOSTIC",
-                "notes": "No filtered regulatory ES or final IMA capital is calculated.",
+                "notes": "No filtered regulatory ES or final IMA aggregate is calculated.",
             }
         )
     return rows

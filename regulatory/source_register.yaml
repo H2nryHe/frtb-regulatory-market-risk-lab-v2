@@ -4,7 +4,7 @@ project:
   implementation_basis: selected_basel_market_risk_mechanics
   claim_note: >-
     Educational portfolio implementation of selected regulatory-market-risk
-    mechanics. Not a production capital system or regulatory compliance claim.
+    mechanics. Not a production risk engine or regulatory compliance claim.
 
 sources:
   - source_id: BIS_MAR20
@@ -127,3 +127,98 @@ sources:
     relevant_sections: ["proposal details", "comments due date"]
     local_snapshot_sha256: "569199744446b4d35316d6da1afb307c00db8576b4dadff477e7c87c2a440f53"
     notes: "Official Federal Reserve proposal page still describes this source as a Rulemaking Proposal as retrieved."
+  - source_id: US_R1887_FED
+    authority: "Board of Governors of the Federal Reserve System"
+    title: "Regulatory Capital Rule: Category I and II Banking Organizations, Banking Organizations with Significant Trading Activity, and Optional Adoption for Other Banking Organizations [R-1887]"
+    url: "https://www.federalreserve.gov/apps/proposals/FR-2026-0007-01/details"
+    status: "Rulemaking Proposal"
+    effective_date: null
+    publication_date: "2026-03-19"
+    last_updated_date: null
+    retrieved_date: "2026-08-16"
+    docket: "R-1887"
+    rin: "7100-AH20"
+    federal_register_citation: "91 FR 14952"
+    project_role: "Current official status source for Phase 9 U.S. proposed market-risk framework crosswalk."
+    relevant_market_risk_sections:
+      - "proposal details status"
+      - "comments due date"
+      - "market risk capital framework summary"
+    relevant_sections: ["proposal details", "comments due 2026-06-18"]
+    local_snapshot_sha256: null
+    notes: "As retrieved for Phase 9, the Federal Reserve page states Rulemaking Proposal and Comments Due 06/18/2026. No final or effective date is inferred."
+  - source_id: US_R1887_FEDERAL_REGISTER
+    authority: "Office of the Comptroller of the Currency; Board of Governors of the Federal Reserve System; Federal Deposit Insurance Corporation"
+    title: "Regulatory Capital Rule: Category I and II Banking Organizations, Banking Organizations With Significant Trading Activity, and Optional Adoption for Other Banking Organizations"
+    url: "https://www.federalregister.gov/documents/2026/03/27/2026-05959/regulatory-capital-rule-category-i-and-ii-banking-organizations-banking-organizations-with"
+    status: "Proposed Rule / Notice of proposed rulemaking"
+    effective_date: null
+    publication_date: "2026-03-27"
+    last_updated_date: null
+    retrieved_date: "2026-08-16"
+    federal_register_citation: "91 FR 14952"
+    document_number: "2026-05959"
+    docket: "Docket No. R-1887; Docket ID OCC-2026-0265"
+    rin: "7100-AH20; 1557-AF52; 3064-AF29"
+    project_role: "Primary official Phase 9 source for proposed U.S. market-risk architecture, applicability, parameters, model eligibility, RFET, NMRF, PLA and backtesting crosswalk."
+    relevant_market_risk_sections:
+      - "Subpart F proposed market risk applicability"
+      - "standardized measure for market risk"
+      - "models-based measure for market risk"
+      - "sensitivities-based capital requirement"
+      - "default risk capital requirement"
+      - "residual risk add-on"
+      - "risk-factor qualitative and quantitative tests"
+      - "PLA and desk-level backtesting"
+      - "stressed expected shortfall and Type A / Type B NMRF"
+      - "fallback capital requirement"
+      - "market risk reporting and disclosures"
+    relevant_sections:
+      - "91 FR 14952"
+      - "§__.201"
+      - "§__.204"
+      - "§§__.206-__.211"
+      - "§§__.213-__.215"
+      - "§__.217"
+    local_snapshot_sha256: null
+    notes: "Federal Register record is the primary U.S. proposal source. It records Document 2026-05959, Docket No. R-1887 and RIN 7100-AH20. No effective date is assigned because the source is a proposal."
+  - source_id: US_R1887_OCC
+    authority: "Office of the Comptroller of the Currency"
+    title: "OCC Bulletin 2026-9: Regulatory Capital: Category I and II Banking Organizations, Banking Organizations With Significant Trading Activity, and Optional Adoption for Other Banking Organizations"
+    url: "https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-9.html"
+    status: "Bulletin summarizing joint notice of proposed rulemaking"
+    effective_date: null
+    publication_date: "2026-03-19"
+    last_updated_date: "2026-03-19"
+    retrieved_date: "2026-08-16"
+    docket: "OCC-2026-0265"
+    rin: "1557-AF52"
+    federal_register_citation: "91 FR 14952"
+    project_role: "Official agency corroboration for proposal status, optional adoption, applicability thresholds and market-risk framework summary."
+    relevant_market_risk_sections:
+      - "summary"
+      - "note for community banks"
+      - "market-risk applicability highlight"
+    relevant_sections: ["OCC Bulletin 2026-9 summary", "highlights"]
+    local_snapshot_sha256: null
+    notes: "OCC bulletin states the agencies issued a joint notice of proposed rulemaking and that comments closed June 18, 2026."
+  - source_id: US_R1887_FDIC
+    authority: "Federal Deposit Insurance Corporation"
+    title: "FIL-8-2026: Regulatory Capital Rule: Category I and II Banking Organizations with Significant Trading Activity and Optional Adoption for Other Banking Organizations"
+    url: "https://www.fdic.gov/news/financial-institution-letters/2026/regulatory-capital-rule-category-i-and-ii-banking"
+    status: "Financial Institution Letter summarizing joint proposal"
+    effective_date: null
+    publication_date: "2026-03-19"
+    last_updated_date: "2026-03-19"
+    retrieved_date: "2026-08-16"
+    docket: "R-1887 / OCC-2026-0265"
+    rin: "3064-AF29"
+    federal_register_citation: "91 FR 14952"
+    project_role: "Official FDIC corroboration for proposed status, optional adoption and high-level market-risk framework treatment."
+    relevant_market_risk_sections:
+      - "summary"
+      - "statement of applicability"
+      - "highlights"
+    relevant_sections: ["FIL-8-2026 summary", "highlights"]
+    local_snapshot_sha256: null
+    notes: "FDIC page identifies the action as a proposal and states comments were due June 18, 2026. No final rule or effective date is inferred."

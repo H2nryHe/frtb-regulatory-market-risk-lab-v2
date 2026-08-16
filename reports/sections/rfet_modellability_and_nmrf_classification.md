@@ -174,4 +174,4 @@ backtesting, desk eligibility, or IMA default-risk model mechanics.
 
 The synthetic observation registry is useful for deterministic RFET mechanics
 tests, but it is not market evidence. The outputs are not final regulatory ES,
-not final IMA capital and not institutional model approval evidence.
+not a final IMA aggregate and not institutional model approval evidence.

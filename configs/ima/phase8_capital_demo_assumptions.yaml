@@ -1,0 +1,84 @@
+metadata:
+  config_id: phase8_capital_demo_assumptions
+  source_basis:
+    - BIS_MAR31
+    - BIS_MAR32
+    - BIS_MAR33
+  evaluation_date: "2026-08-14"
+  synthetic: true
+  institutional_modellability_determination: NOT_PERFORMED
+  status: EDUCATIONAL_SCENARIO_ASSUMPTION
+  notes: >
+    Phase 8 uses this explicit assumption layer for selected capital mechanics.
+    Synthetic RFET observations do not establish institutional Basel
+    modellability or supervisory acceptance.
+
+desk_routes:
+  TD-RATES:
+    phase8_route: SIMULATED_IMA_BRANCH
+    route_reason: Phase 7 PLA GREEN and desk backtesting PASS.
+  TD-EQUITY:
+    phase8_route: SIMULATED_IMA_BRANCH
+    route_reason: Phase 7 PLA GREEN and desk backtesting PASS.
+  TD-FX:
+    phase8_route: SIMULATED_SA_FALLBACK
+    route_reason: Phase 7 PLA RED creates simulated SA fallback routing.
+  TD-CREDIT:
+    phase8_route: SELECTED_SA_ONLY
+    route_reason: Out of selected Phase 7 IMA diagnostic scope.
+
+risk_factor_demo_treatments:
+  RF_GIRR_USD_5Y_RATE:
+    desk_id: TD-RATES
+    rfet_mechanics_result: PASS
+    phase8_demo_treatment: SIMULATED_MODELLED_FACTOR
+    institutional_modellability_determination: NOT_PERFORMED
+  RF_EQUITY_SPX_SPOT:
+    desk_id: TD-EQUITY
+    rfet_mechanics_result: PASS
+    phase8_demo_treatment: SIMULATED_MODELLED_FACTOR
+    institutional_modellability_determination: NOT_PERFORMED
+  RF_EQUITY_SPX_VOL_1Y:
+    desk_id: TD-EQUITY
+    rfet_mechanics_result: FAIL
+    phase8_demo_treatment: SIMULATED_NMRF
+    institutional_modellability_determination: NOT_PERFORMED
+  RF_FX_EURUSD_SPOT:
+    desk_id: TD-FX
+    rfet_mechanics_result: FAIL
+    phase8_demo_treatment: SA_FALLBACK_DESK_EXCLUDED_FROM_ELIGIBLE_DESK_SES
+    institutional_modellability_determination: NOT_PERFORMED
+  RF_FX_EURUSD_VOL_1Y:
+    desk_id: TD-FX
+    rfet_mechanics_result: PASS
+    phase8_demo_treatment: SA_FALLBACK_DESK_EXCLUDED_FROM_ELIGIBLE_DESK_IMCC
+    institutional_modellability_determination: NOT_PERFORMED
+
+modelled_factor_set:
+  eligible_desk_ids:
+    - TD-RATES
+    - TD-EQUITY
+  factor_ids:
+    - RF_GIRR_USD_5Y_RATE
+    - RF_EQUITY_SPX_SPOT
+  broad_risk_classes:
+    interest_rate:
+      - RF_GIRR_USD_5Y_RATE
+    equity:
+      - RF_EQUITY_SPX_SPOT
+
+eligible_nmrf_set:
+  factor_ids:
+    - RF_EQUITY_SPX_VOL_1Y
+  excluded_fallback_desk_nmrf_ids:
+    - RF_FX_EURUSD_SPOT
+
+parameters:
+  imcc_rho: 0.5
+  ses_rho: 0.6
+  nmrf_minimum_liquidity_horizon_days: 20
+  reduced_set_minimum_average_ratio: 0.75
+  reduced_set_evaluation_weeks: 12
+  stress_window_observations: 252
+  stress_window_step_observations: 21
+  confidence_level: 0.975

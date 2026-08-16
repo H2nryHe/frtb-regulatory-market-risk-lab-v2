@@ -2,10 +2,11 @@
 
 Scope document for the current phase gate. It records completed source
 governance, Phase 1 taxonomy/mapping work, selected Phase 2 raw/weighted
-sensitivity preparation, selected Phase 3 SBM aggregation, and selected Phase 4
+sensitivity preparation, selected Phase 3 SBM aggregation, selected Phase 4
 DRC/RRAO integration, Phase 5 provisional selected IMA ES mechanics, Phase
-6 simulated RFET/NMRF-candidate classification mechanics, and Phase 7
-desk-level PLA/backtesting diagnostics.
+6 simulated RFET/NMRF-candidate classification mechanics, Phase 7 desk-level
+PLA/backtesting diagnostics, and Phase 8 selected IMCC/SES/routing case-study
+mechanics.
 
 | Basel chapter / paragraph area | Concept | Planned project phase | Implementation scope | Explicitly omitted scope | Source ID |
 | --- | --- | --- | --- | --- | --- |
@@ -16,8 +17,8 @@ desk-level PLA/backtesting diagnostics.
 | MAR30.1-MAR30.18 | Internal models approach governance | Phases 5-7 | Implemented documentation and diagnostics for selected synthetic IMA workflow concepts | Supervisory model application workflow and bank approval processes | BIS_MAR30 |
 | MAR31.1-MAR31.26 | Model requirements and RFET | Phase 6 | Implemented synthetic RFET observation-registry mechanics, Route 1 count and 90-day coverage test, Route 2 count test, selected RFET bucketing, monthly monitoring, qualitative principles assessment and simulated ES-candidate / NMRF-candidate classification | Institutional real-data validation, final modellability determination, NMRF stress-scenario capital, final IMCC and IMA default-risk model | BIS_MAR31 |
 | MAR32.1-MAR32.45 | Backtesting and PLA | Phase 7 | Implemented deterministic desk-level HPL, RTPL and synthetic APL construction; PLA Spearman and KS diagnostics; 97.5% and 99% one-day VaR backtesting against APL and HPL; desk-level simulated diagnostic status | Production desk governance, amber capital surcharge, bank-wide backtesting zones, final IMA approval and regulatory filing | BIS_MAR32 |
-| MAR33.1-MAR33.17 | ES and liquidity horizons | Phase 5 | Implemented provisional selected-factor IMA ES mechanics, direct overlapping 10-day shocks, selected liquidity-horizon aggregation and reduced-set stress calibration | NMRF capital, MAR33.15 rho weighting, IMA default risk model, final IMCC aggregation and complete SES engine | BIS_MAR33 |
-| MAR33.40-MAR33.46 | Model-ineligible desks and aggregation context | Phase 7 documentation; Phase 8 case study | Implemented fallback-to-SA diagnostic interpretation for controlled desks only | Single bank-wide total capital claim and final model-ineligible-desk aggregation | BIS_MAR33 |
+| MAR33.1-MAR33.17 | ES, liquidity horizons, IMCC and SES | Phases 5 and 8 | Implemented provisional selected-factor IMA ES mechanics, direct overlapping 10-day shocks, selected liquidity-horizon aggregation, reduced-set stress calibration, selected modelled-factor IMCC mechanics and selected NMRF stress-scenario mechanics | IMA default risk model, final MAR33.41 aggregation, multiplier, amber surcharge and institutional model approval | BIS_MAR33 |
+| MAR33.40-MAR33.46 | Model-ineligible desks and aggregation context | Phase 7 documentation; Phase 8 case study | Implemented fallback-to-SA diagnostic interpretation for controlled desks and a selected component routing matrix | Single bank-wide aggregate claim and final model-ineligible-desk aggregation | BIS_MAR33 |
 | MAR20.1-MAR20.5 and MAR21 selected taxonomy paragraphs | Trading-book scope representation | Phase 1 | Implemented deterministic synthetic instrument-to-desk scope metadata and validation controls | Legal entity scope, supervisory reporting and production trading-book governance | BIS_MAR20; BIS_MAR21 |
 | MAR21.8, MAR21.12, MAR21.14, MAR21.19, MAR21.21, MAR21.24-MAR21.28 | Instrument taxonomy and risk-factor mapping | Phase 1 | Implemented selected GIRR, Equity and FX taxonomy records needed for later phases | Full Basel risk-factor universe and risk-weight tables | BIS_MAR21 |
 | MAR21.1-MAR21.7 and MAR21.15-MAR21.38 | Sensitivity requirement mapping | Phase 1 | Implemented metadata describing future delta, vega and curvature treatment requirements | Sensitivity values, risk weights and SBM aggregation | BIS_MAR21 |
@@ -36,7 +37,7 @@ desk-level PLA/backtesting diagnostics.
 | MAR22.1-MAR22.26 | Selected non-securitisation DRC | Phase 4 | Implemented selected corporate non-securitisation DRC with gross JTD, maturity scaling, same-obligor netting, seniority rules, HBR, credit-quality risk weights, bucket capital and no cross-bucket diversification | Securitisation DRC, CTP, tranche treatment and index decomposition | BIS_MAR22 |
 | MAR23.1-MAR23.8 | Selected RRAO | Phase 4 | Implemented selected RRAO classification and gross-notional calculation for barrier other-residual risk plus test-only exotic-underlying and exclusion cases | Exhaustive residual-risk product taxonomy and pricing of exotic cases | BIS_MAR23 |
 | MAR20.1-MAR20.5; MAR21.7; MAR22.26; MAR23.8 | Selected-scope Standardised Approach integration | Phase 4 | Implemented selected-scope SA total as binding selected SBM plus non-securitisation DRC plus RRAO | Complete SA, market-risk RWA reporting, IMA ES, RFET, PLA and backtesting | BIS_MAR20; BIS_MAR21; BIS_MAR22; BIS_MAR23 |
-| MAR33.1-MAR33.6 | Selected current and stressed ES calibration | Phase 5 | Implemented 97.5% empirical ES over synthetic current observations, provisional reduced-set stress-window search and stress scaling | Final IMA capital approval workflow, NMRF capital and final IMCC aggregation | BIS_MAR33 |
+| MAR33.1-MAR33.6 | Selected current and stressed ES calibration | Phase 5 | Implemented 97.5% empirical ES over synthetic current observations, provisional reduced-set stress-window search and stress scaling | Institutional approval workflow and final MAR33.41 aggregation | BIS_MAR33 |
 | MAR33.9 | Reduced factor set diagnostic | Phase 5 | Implemented provisional reduced/full ES coverage diagnostic over 12 weekly windows using synthetic factors only | RFET-derived modellability decisions and supervisory reduced-set validation | BIS_MAR33 |
 | MAR33.12 Table 2 | Selected liquidity horizons | Phase 5 | Implemented selected USD rate, large-cap equity spot, large-cap equity volatility, specified-pair EUR/USD spot and FX volatility mappings | Complete risk-factor universe and discretionary horizon increases | BIS_MAR33 |
 | MAR31.12-MAR31.15 | Synthetic RFET observation registry and mapping | Phase 6 | Implemented deterministic synthetic observation generation, explicit representativeness mapping, wrong-factor rejection, non-representative rejection and once-per-day counting | Use of actual transactions, committed quotes, vendor evidence, or institutional source validation | BIS_MAR31 |
@@ -48,10 +49,13 @@ desk-level PLA/backtesting diagnostics.
 | MAR32.20-MAR32.25 | HPL and RTPL P&L construction discipline | Phase 7 | Implemented static-position HPL, declared RTPL risk-factor mappings, synthetic APL labels and deterministic intraday components for selected desks | Use of real desk books, production pricing systems, fees/commissions workflows and CVA/DVA policy implementation | BIS_MAR32 |
 | MAR32.34-MAR32.42 | PLA Spearman and KS tests | Phase 7 | Implemented 250-day Spearman rank-correlation and KS empirical-CDF diagnostics with green, amber and red zone logic | Supervisory review workflow and production exception investigation | BIS_MAR32 |
 | MAR32.43-MAR32.44 | Desk diagnostic consequences | Phase 7 | Implemented simulated desk fallback flag for PLA RED/backtesting breach and recorded PLA AMBER surcharge as deferred | Actual SA fallback capital, amber surcharge calculation and final institutional IMA eligibility | BIS_MAR32 |
+| MAR33.13-MAR33.15 | Selected modelled-factor IMCC | Phase 8 | Implemented selected unconstrained and broad-risk-class constrained IMCC mechanics for TD-RATES and TD-EQUITY using rho 0.5 and a predeclared remediated reduced factor set | IMA default risk model, multiplier, 60-day averaging and bank-level approval processes | BIS_MAR33 |
+| MAR33.16-MAR33.17 | Selected NMRF stress scenarios and SES | Phase 8 | Implemented selected equity-volatility NMRF stress-scenario loss, 20-day minimum NMRF liquidity horizon, common same-risk-class stress period and SES rho 0.6 aggregation branch | Supervisory acceptance of idiosyncratic zero-correlation treatments and exhaustive NMRF universe | BIS_MAR33 |
+| MAR33.40 | Model-ineligible desk fallback | Phase 8 | Implemented an integrated routing matrix that sends simulated eligible desks to IMCC/SES mechanics, TD-FX to selected SA fallback components and TD-CREDIT to selected SA-only DRC reference | Complete desk-level fallback SA re-run and final MAR33.41 aggregate | BIS_MAR33 |
 
 Explicit out-of-scope items for this project version: securitisation DRC, CTP,
-full seven-risk-class SBM, full NMRF SES capital engine, full bank-wide IMCC
-implementation, PLA amber surcharge calculation, bank-wide backtesting zones,
-IMA default risk model mechanics, institutional real-data validation, final
-modellability determination, final IMA eligibility, and regulatory reporting or
-filing.
+full seven-risk-class SBM, exhaustive NMRF universe, IMA default risk model
+mechanics, PLA amber surcharge calculation, bank-wide backtesting zones,
+MAR33.41 final aggregation, institutional real-data validation, final
+modellability determination, final institutional IMA eligibility, and regulatory
+reporting or filing.

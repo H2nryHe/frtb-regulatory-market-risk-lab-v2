@@ -396,17 +396,20 @@ def test_phase4_parameter_provenance_is_complete() -> None:
         assert row["source_paragraph_or_table"].startswith(("MAR22", "MAR23"))
 
 
-def test_no_phase5_or_out_of_scope_engines_exist() -> None:
+def test_no_deferred_final_or_unapproved_engines_exist() -> None:
     forbidden = [
         REPO_ROOT / "src" / "frtb_lab" / "sa" / "securitisation_drc.py",
         REPO_ROOT / "src" / "frtb_lab" / "sa" / "ctp.py",
-        REPO_ROOT / "src" / "frtb_lab" / "ima" / "imcc.py",
-        REPO_ROOT / "src" / "frtb_lab" / "ima" / "nmrf.py",
         REPO_ROOT / "src" / "frtb_lab" / "ima" / "default_risk.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "capital_aggregation.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "bank_wide_multiplier.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "amber_surcharge.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "mar33_41.py",
         REPO_ROOT / "src" / "frtb_lab" / "rfet.py",
         REPO_ROOT / "src" / "frtb_lab" / "pla.py",
         REPO_ROOT / "src" / "frtb_lab" / "backtesting.py",
         REPO_ROOT / "data" / "artifacts" / "ima_capital.csv",
+        REPO_ROOT / "data" / "artifacts" / "phase8_bank_capital.csv",
         REPO_ROOT / "data" / "artifacts" / "rfet.csv",
         REPO_ROOT / "data" / "artifacts" / "pla.csv",
         REPO_ROOT / "data" / "artifacts" / "backtesting.csv",

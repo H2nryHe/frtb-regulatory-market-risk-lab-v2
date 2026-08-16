@@ -384,12 +384,13 @@ def test_phase7_artifacts_are_ignored_and_untracked(phase7_output: dict[str, Any
     assert tracked.stdout == ""
 
 
-def test_deferred_phase8_capital_outputs_do_not_exist() -> None:
+def test_deferred_final_or_unapproved_outputs_do_not_exist() -> None:
     forbidden = [
-        REPO_ROOT / "src" / "frtb_lab" / "ima" / "imcc.py",
-        REPO_ROOT / "src" / "frtb_lab" / "ima" / "nmrf.py",
         REPO_ROOT / "src" / "frtb_lab" / "ima" / "default_risk.py",
         REPO_ROOT / "src" / "frtb_lab" / "ima" / "capital_aggregation.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "bank_wide_multiplier.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "amber_surcharge.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "mar33_41.py",
         REPO_ROOT / "data" / "artifacts" / "nmrf_capital.csv",
         REPO_ROOT / "data" / "artifacts" / "phase7_amber_surcharge.csv",
         REPO_ROOT / "data" / "artifacts" / "phase7_bank_wide_backtesting.csv",

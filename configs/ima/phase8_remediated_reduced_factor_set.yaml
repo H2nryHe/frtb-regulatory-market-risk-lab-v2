@@ -1,0 +1,36 @@
+metadata:
+  config_id: phase8_remediated_reduced_factor_set
+  source_id: BIS_MAR33
+  source_paragraph_or_table: MAR33.5-MAR33.9
+  selection_date: "2026-08-15"
+  status: IMPLEMENTED_FOR_SYNTHETIC_DEMO
+  predeclared_before_phase8_metric_evaluation: true
+  original_config_preserved: configs/ima/reduced_factor_set.yaml
+  notes: >
+    This separate Phase 8 candidate does not overwrite the Phase 5 provisional
+    reduced set. The eligible modelled full set contains only two simulated
+    modelled factors, both with sufficient synthetic history. Retaining both is
+    the only defensible no-tuning reduced set for this scope.
+
+full_modelled_factor_ids:
+  - RF_GIRR_USD_5Y_RATE
+  - RF_EQUITY_SPX_SPOT
+
+reduced_factor_ids:
+  - RF_GIRR_USD_5Y_RATE
+  - RF_EQUITY_SPX_SPOT
+
+rationale:
+  RF_GIRR_USD_5Y_RATE: Eligible TD-RATES simulated modelled factor with full synthetic history.
+  RF_EQUITY_SPX_SPOT: Eligible TD-EQUITY simulated modelled factor with full synthetic history.
+
+excluded_factor_ids:
+  RF_EQUITY_SPX_VOL_1Y: Eligible-desk NMRF candidate; routed to SES mechanics.
+  RF_FX_EURUSD_SPOT: TD-FX SA fallback desk; excluded from eligible-desk SES.
+  RF_FX_EURUSD_VOL_1Y: TD-FX SA fallback desk; excluded from eligible-desk IMCC.
+
+coverage_diagnostic:
+  minimum_average_ratio: 0.75
+  evaluation_weeks: 12
+  expected_project_status: PASS
+  no_post_hoc_capital_minimisation: true

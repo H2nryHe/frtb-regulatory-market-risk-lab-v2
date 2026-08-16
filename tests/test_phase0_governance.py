@@ -169,4 +169,10 @@ def test_no_public_file_overclaims_status() -> None:
             text = " ".join(path.read_text(errors="ignore").lower().split())
             denial = "not a regulatory-compliance or production " + "capital engine"
             text = text.replace(denial, "")
+            phase8_denial = (
+                "it is not an institutional modellability determination, "
+                "supervisory "
+                "approval, or a complete regulatory capital calculation"
+            )
+            text = text.replace(phase8_denial, "")
             assert not any(fragment in text for fragment in fragments), path

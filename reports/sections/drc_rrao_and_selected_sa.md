@@ -6,7 +6,7 @@ Phase 4 adds selected non-securitisation DRC and selected RRAO, then integrates
 them with the Phase 3 selected-scope SBM result.
 
 Educational selected implementation only. Not a regulatory-compliance or
-production capital engine.
+production risk engine.
 
 ## Regulatory Basis
 

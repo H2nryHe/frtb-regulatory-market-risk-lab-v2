@@ -1,0 +1,5 @@
+desk_id,phase7_pla_zone,phase7_backtesting_status,phase7_test_gate,phase8_route,route_reason,modelled_factor_mechanics_in_scope,nmrf_mechanics_in_scope,sa_fallback_scope,institutional_approval_status,notes
+TD-RATES,GREEN,PASS,SIMULATED_IMA_TEST_GATE_PASS,SIMULATED_IMA_BRANCH,Phase 7 PLA GREEN and 97.5/99 backtesting PASS,true,false,false,NOT_PERFORMED,Synthetic IMA branch for selected modelled-factor mechanics only
+TD-EQUITY,GREEN,PASS,SIMULATED_IMA_TEST_GATE_PASS,SIMULATED_IMA_BRANCH,Phase 7 PLA GREEN and 97.5/99 backtesting PASS,true,true,false,NOT_PERFORMED,Equity spot enters IMCC and equity volatility enters selected SES mechanics
+TD-FX,RED,PASS,SIMULATED_SA_FALLBACK_REQUIRED,SIMULATED_SA_FALLBACK,Phase 7 PLA RED routes desk to selected SA fallback branch,false,false,true,NOT_PERFORMED,FX NMRF candidate is excluded from eligible-desk SES because desk routing comes first
+TD-CREDIT,OUT_OF_SELECTED_IMA_DIAGNOSTIC_SCOPE,OUT_OF_SELECTED_IMA_DIAGNOSTIC_SCOPE,OUT_OF_SELECTED_IMA_DIAGNOSTIC_SCOPE,SELECTED_SA_ONLY,Desk was outside selected Phase 7 IMA diagnostic scope,false,false,true,NOT_PERFORMED,No PLA RTPL IMA DRC or credit-spread IMA model fabricated

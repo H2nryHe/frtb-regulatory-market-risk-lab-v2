@@ -1,0 +1,7 @@
+finding_id,prior_status,phase8_consequence,remediation_status,final_status,notes
+RFET-FIND-001,OPEN,RF_EQUITY_SPX_VOL_1Y enters simulated eligible-desk NMRF SES mechanics,MITIGATED_FOR_SYNTHETIC_DEMO,OPEN,Capital treatment does not resolve insufficient real-price observations
+RFET-FIND-002,OPEN,RF_FX_EURUSD_SPOT is excluded from SES because TD-FX routes to SA fallback,MITIGATED_FOR_SYNTHETIC_DEMO,OPEN,Desk routing does not resolve 90-day RFET coverage gap
+RFET-FIND-003,OPEN,Separate Phase 8 remediated reduced-set candidate implemented for eligible modelled factors,REMEDIATION_IMPLEMENTED_PENDING_VALIDATION,REMEDIATION_IMPLEMENTED_PENDING_VALIDATION,Original Phase 5 reduced-set config is preserved and not marked closed
+RFET-FIND-004,OPEN,Synthetic evidence limitation continues to apply to all simulated modelled factors,OPEN,OPEN,No institutional validation evidence was introduced
+PLA-BT-FIND-001,OPEN,TD-FX routes to selected SA fallback components,MITIGATED_FOR_SYNTHETIC_DEMO,OPEN,SA fallback routing does not remediate PLA root cause
+PLA-BT-FIND-002,OPEN,TD-FX RTPL factor gap explains SA fallback branch,MITIGATED_FOR_SYNTHETIC_DEMO,OPEN,No RTPL model remediation evidence was created
