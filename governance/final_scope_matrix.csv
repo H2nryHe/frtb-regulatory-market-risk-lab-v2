@@ -1,0 +1,28 @@
+component,subcomponent,status,implementation_depth,primary_source,key_output,limitation,notes
+SBM,GIRR,IMPLEMENTED,Selected USD 5Y delta/PV01 and aggregation,BIS_MAR21,Selected GIRR delta capital 153309.2302785498,No complete GIRR curve universe,Source-traceable selected mechanics
+SBM,Equity,IMPLEMENTED,Selected bucket 12 delta vega and vanilla curvature,BIS_MAR21,Selected equity delta 153024.3684328582; vega 30510.6529200413; curvature 0.0,No full equity universe or repo-rate sensitivity,Barrier SBM remains deferred
+SBM,FX,IMPLEMENTED,Selected EUR/USD delta vega and vanilla curvature,BIS_MAR21,Selected FX delta 225542.7953442151; vega 38673.6331829128; curvature 0.0,No full FX universe,Base FX risk weight only
+SBM,Correlation scenarios,IMPLEMENTED,LOW MEDIUM HIGH transforms and scenario max,BIS_MAR21,Selected SBM 601060.6801585773,Canonical scenarios tie due selected scope,Non-trivial correlation tests still exist
+SBM,Curvature,IMPLEMENTED,Selected vanilla option full-revaluation curvature,BIS_MAR21,Canonical selected curvature 0.0,No barrier curvature,Sign and full revaluation tested
+DRC,Non-securitisation,IMPLEMENTED,Selected corporate DRC with JTD maturity netting HBR and bucket capital,BIS_MAR22,Non-securitisation DRC 25200.0,No securitisation or CTP,Canonical bond is synthetic
+RRAO,Residual risk add-on,IMPLEMENTED,Selected classifier and gross-notional charge,BIS_MAR23,RRAO 250.0 for SYN_EQ_BARRIER,Not exhaustive product taxonomy,Barrier classified as OTHER_RESIDUAL_RISK
+IMA,Expected shortfall,IMPLEMENTED,Selected 97.5 percent ES over synthetic 10-day shocks,BIS_MAR33,ES_F_C 135310.97891484312,Component mechanics only,Synthetic data only
+IMA,Liquidity horizons,IMPLEMENTED,10/20/40/60/120 day grid and Q(P,j) aggregation,BIS_MAR33,Full selected current liquidity-adjusted ES 135310.97891484312,Selected factor universe only,No one-day sqrt-time shortcut
+IMA,Stress calibration,IMPLEMENTED,Reduced-set stress window and scaling,BIS_MAR33,ES_R_S 377307.3028054556,Reduced set later conflicts with RFET,Provisional Phase 5 mechanics preserved
+IMA,RFET,IMPLEMENTED,Simulated Route 1 Route 2 and coverage mechanics,BIS_MAR31,3 PASS and 2 FAIL factors,Synthetic observations are not market evidence,Institutional status NOT_PERFORMED
+IMA,NMRF classification,IMPLEMENTED,Factor-level NMRF candidate classification,BIS_MAR31; BIS_MAR33,RF_EQUITY_SPX_VOL_1Y and RF_FX_EURUSD_SPOT are NMRF_CANDIDATE,No institutional modellability determination,NMRF alone does not force desk fallback
+IMA,PLA,IMPLEMENTED,250-day Spearman and KS diagnostics,BIS_MAR32,TD-RATES GREEN; TD-EQUITY GREEN; TD-FX RED,Synthetic HPL RTPL APL only,TD-FX adverse result preserved
+IMA,Desk backtesting,IMPLEMENTED,97.5 and 99 percent VaR backtesting against APL and HPL,BIS_MAR32,All selected desks PASS,No bank-wide traffic-light capital consequence,MAR32.19 correction preserved
+IMA,IMCC,IMPLEMENTED,Selected modelled-factor IMCC mechanics,BIS_MAR33,Simulated selected IMCC 358979.94225370314,No multiplier or final MAR33 aggregate,Selected eligible desks only
+IMA,SES,IMPLEMENTED,Selected NMRF stress scenario and SES mechanics,BIS_MAR33,Simulated selected SES 26655.82413840059,Not exhaustive NMRF universe,One eligible-desk NMRF
+Routing,Desk routing,IMPLEMENTED,Selected IMA branch and selected SA fallback routing,BIS_MAR33,TD-RATES and TD-EQUITY IMA branch; TD-FX SA fallback; TD-CREDIT SA-only,No final bank-wide total,Routing is simulated
+U.S. crosswalk,2026 proposal,IMPLEMENTED,Crosswalk and gap analysis only,US_R1887_FEDERAL_REGISTER,PROPOSED / CROSSWALK ONLY,No U.S. calculation engine,Parameters isolated from Basel configs
+Omission,CSR full SBM,OUT_OF_SCOPE,Not implemented,BIS_MAR21,NOT_IMPLEMENTED,No full CSR sensitivity capital,Only DRC-relevant credit example
+Omission,Commodity,OUT_OF_SCOPE,Not implemented,BIS_MAR21,NOT_IMPLEMENTED,No commodity risk class,Explicit scope boundary
+Omission,Securitisation DRC,OUT_OF_SCOPE,Not implemented,BIS_MAR22,NOT_IMPLEMENTED,No securitisation treatment,Explicit scope boundary
+Omission,CTP,OUT_OF_SCOPE,Not implemented,BIS_MAR22,NOT_IMPLEMENTED,No correlation trading portfolio treatment,Explicit scope boundary
+Omission,IMA DRC,OUT_OF_SCOPE,Not implemented,BIS_MAR33,NOT_IMPLEMENTED,No internal default-risk model,Explicit scope boundary
+Omission,Bank-wide multiplier,OUT_OF_SCOPE,Not implemented,BIS_MAR33,NOT_IMPLEMENTED,No bank-wide multiplier,Final aggregate remains NOT_CALCULATED
+Omission,Amber surcharge,OUT_OF_SCOPE,Not implemented,BIS_MAR32,NOT_IMPLEMENTED,No PLA amber surcharge,No selected desk needs amber surcharge
+Omission,Final MAR33 aggregate,OUT_OF_SCOPE,Not implemented,BIS_MAR33,NOT_CALCULATED,No final bank-wide aggregate,Prevents invalid scope mixing
+Omission,Full U.S. proposal engine,OUT_OF_SCOPE,Not implemented,US_R1887_FEDERAL_REGISTER,NOT_IMPLEMENTED,No U.S. portfolio capital,Phase 9 remains crosswalk-only

@@ -59,6 +59,14 @@ def _read_csv(path: Path) -> list[dict[str, str]]:
 
 
 def _unresolved_findings_count() -> int:
+    final_inventory = REPO_ROOT / "governance" / "final_findings_inventory.csv"
+    if final_inventory.exists():
+        counted_statuses = {"OPEN", "REMEDIATION_IMPLEMENTED_PENDING_VALIDATION"}
+        return sum(
+            row.get("current_status") in counted_statuses
+            for row in _read_csv(final_inventory)
+        )
+
     files = [
         REPO_ROOT / "governance" / "rfet_findings.csv",
         REPO_ROOT / "governance" / "pla_backtesting_findings.csv",
@@ -102,7 +110,7 @@ def collect_release_snapshot() -> ReleaseValidationSnapshot:
     for summary in phase7["backtesting"]["summaries"]:
         backtesting_statuses.setdefault(summary.desk_id, {})[
             summary.confidence_level
-        ] = summary.status
+        ] = summary.threshold_status
 
     desk_routes = {
         row["desk_id"]: row["phase8_route"]
@@ -110,14 +118,16 @@ def collect_release_snapshot() -> ReleaseValidationSnapshot:
     }
 
     return ReleaseValidationSnapshot(
-        selected_sbm=sa["sbm"]["selected_sbm_capital"],
-        drc=sa["drc"]["total_drc"],
-        rrao=sa["rrao"]["total_rrao"],
+        selected_sbm=sa["selected_sbm"],
+        drc=sa["non_securitisation_drc"],
+        rrao=sa["rrao"],
         selected_sa=sa["selected_scope_standardised_approach_capital"],
         es_f_c=phase5["stress_calibration"].es_f_c,
         es_r_c=phase5["stress_calibration"].es_r_c,
         es_r_s=phase5["stress_calibration"].es_r_s,
-        phase5_reduced_set_coverage=phase5["reduced_set_diagnostic"].average_ratio,
+        phase5_reduced_set_coverage=(
+            phase5["stress_calibration"].reduced_set_diagnostic.average_ratio
+        ),
         rfet_results=rfet_results,
         reduced_set_audit_status=reduced_set_rfet_audit(phase6["results"])[
             "audit_status"

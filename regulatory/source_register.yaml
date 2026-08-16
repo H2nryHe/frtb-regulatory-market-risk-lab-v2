@@ -1,6 +1,7 @@
 project:
   name: frtb-regulatory-market-risk-lab-v2
   source_freeze_date: "2026-08-15"
+  retrieval_date_basis: UTC
   implementation_basis: selected_basel_market_risk_mechanics
   claim_note: >-
     Educational portfolio implementation of selected regulatory-market-risk
