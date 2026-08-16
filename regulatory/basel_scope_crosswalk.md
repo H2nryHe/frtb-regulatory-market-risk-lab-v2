@@ -3,7 +3,8 @@
 Scope document for the current phase gate. It records completed source
 governance, Phase 1 taxonomy/mapping work, selected Phase 2 raw/weighted
 sensitivity preparation, selected Phase 3 SBM aggregation, and selected Phase 4
-DRC/RRAO integration, and Phase 5 provisional selected IMA ES mechanics.
+DRC/RRAO integration, Phase 5 provisional selected IMA ES mechanics, and Phase
+6 simulated RFET/NMRF-candidate classification mechanics.
 
 | Basel chapter / paragraph area | Concept | Planned project phase | Implementation scope | Explicitly omitted scope | Source ID |
 | --- | --- | --- | --- | --- | --- |
@@ -12,7 +13,7 @@ DRC/RRAO integration, and Phase 5 provisional selected IMA ES mechanics.
 | MAR22.1-MAR22.26 | Default risk capital requirement | Phase 4 | Planned non-securitisation DRC for controlled corporate, sovereign and local-government/municipality examples | Securitisation DRC, non-CTP securitisation and CTP | BIS_MAR22 |
 | MAR23.1-MAR23.8 | Residual Risk Add-On | Phase 4 | Planned bounded RRAO classifier and calculator for deterministic examples | Exhaustive product taxonomy and reporting workflow | BIS_MAR23 |
 | MAR30.1-MAR30.18 | Internal models approach governance | Phases 5-7 | Planned documentation and diagnostics for selected IMA workflow concepts | Supervisory model application workflow and bank approval processes | BIS_MAR30 |
-| MAR31.1-MAR31.26 | Model requirements and RFET | Phase 6 | Planned RFET and modellability classification for synthetic real-price observations | Full NMRF stressed expected-shortfall capital engine | BIS_MAR31 |
+| MAR31.1-MAR31.26 | Model requirements and RFET | Phase 6 | Implemented synthetic RFET observation-registry mechanics, Route 1 count and 90-day coverage test, Route 2 count test, selected RFET bucketing, monthly monitoring, qualitative principles assessment and simulated ES-candidate / NMRF-candidate classification | Institutional real-data validation, final modellability determination, NMRF stress-scenario capital, IMCC, PLA, backtesting and desk IMA eligibility | BIS_MAR31 |
 | MAR32.1-MAR32.45 | Backtesting and PLA | Phase 7 | Planned PLA diagnostics and regulatory VaR backtesting for synthetic desks | Production desk governance and regulatory filing | BIS_MAR32 |
 | MAR33.1-MAR33.17 | ES and liquidity horizons | Phase 5 | Implemented provisional selected-factor IMA ES mechanics, direct overlapping 10-day shocks, selected liquidity-horizon aggregation and reduced-set stress calibration | RFET, NMRF capital, PLA, backtesting, desk eligibility, MAR33.15 rho weighting, IMA default risk model, final IMCC aggregation and complete SES engine | BIS_MAR33 |
 | MAR33.40-MAR33.46 | Model-ineligible desks and aggregation context | Phase 7 documentation; Phase 8 case study | Planned fallback-to-SA diagnostic interpretation for controlled desks | Single bank-wide total capital claim | BIS_MAR33 |
@@ -37,8 +38,14 @@ DRC/RRAO integration, and Phase 5 provisional selected IMA ES mechanics.
 | MAR33.1-MAR33.6 | Selected current and stressed ES calibration | Phase 5 | Implemented 97.5% empirical ES over synthetic current observations, provisional reduced-set stress-window search and stress scaling | Final IMA capital approval workflow, NMRF capital and final IMCC aggregation | BIS_MAR33 |
 | MAR33.9 | Reduced factor set diagnostic | Phase 5 | Implemented provisional reduced/full ES coverage diagnostic over 12 weekly windows using synthetic factors only | RFET-derived modellability decisions and supervisory reduced-set validation | BIS_MAR33 |
 | MAR33.12 Table 2 | Selected liquidity horizons | Phase 5 | Implemented selected USD rate, large-cap equity spot, large-cap equity volatility, specified-pair EUR/USD spot and FX volatility mappings | Complete risk-factor universe and discretionary horizon increases | BIS_MAR33 |
+| MAR31.12-MAR31.15 | Synthetic RFET observation registry and mapping | Phase 6 | Implemented deterministic synthetic observation generation, explicit representativeness mapping, wrong-factor rejection, non-representative rejection and once-per-day counting | Use of actual transactions, committed quotes, vendor evidence, or institutional source validation | BIS_MAR31 |
+| MAR31.13 | RFET Route 1 and Route 2 mechanics | Phase 6 | Implemented Route 1 24-observation plus 90-day/four-observation coverage test, Route 2 100-observation alternative and Route1 OR Route2 result logic | Supervisory determination that a factor is institutionally modellable | BIS_MAR31 |
+| MAR31.16-MAR31.18 | Selected RFET bucketing | Phase 6 | Implemented selected regulatory bucket rows for USD 5Y rate and 1Y volatility expiry dimensions with non-overlap and single-bucket allocation controls | Complete curve/surface universe and own-bucket methodology approvals | BIS_MAR31 |
+| MAR31.19-MAR31.23 | Curve/surface and calibration-data discipline | Phase 6 | Documented USD 5Y rate as direct scalar market-data simplification and separated RFET events from ES calibration evidence | RFET at production curve-calibration data level and final ES calibration-data validation | BIS_MAR31 |
+| MAR31.25-MAR31.26 | Principles after RFET | Phase 6 | Implemented qualitative principles assessment showing synthetic evidence is project mechanics only and RFET pass is necessary but not sufficient | Institutional evidence review and supervisory conclusion | BIS_MAR31 |
 
 Explicit out-of-scope items for this project version: securitisation DRC, CTP,
 full seven-risk-class SBM, full NMRF SES capital engine, full bank-wide IMCC
-implementation, RFET, PLA, backtesting, desk eligibility, IMA default risk model
-mechanics, and regulatory reporting or filing.
+implementation, PLA, backtesting, desk eligibility, IMA default risk model
+mechanics, institutional real-data validation, final modellability
+determination, and regulatory reporting or filing.

@@ -108,12 +108,13 @@ def test_synthetic_history_code_has_no_live_market_data_sources() -> None:
         assert scan.returncode == 1
 
 
-def test_candidate_ima_risk_factors_are_pending_rfet_and_selected_only() -> None:
+def test_candidate_ima_risk_factors_have_controlled_phase6_outcomes() -> None:
     rows = _inventory_rows()
     assert set(rows) == set(FULL_FACTOR_IDS)
     horizons = factor_liquidity_horizons()
     assert set(FULL_FACTOR_IDS) <= set(horizons)
-    assert {row["modellability_status"] for row in rows.values()} == {"PENDING_RFET"}
+    assert {row["rfet_mechanics_result"] for row in rows.values()} == {"PASS", "FAIL"}
+    assert not any(row["modellability_status"] == "MODELLABLE" for row in rows.values())
     assert all(row["phase6_rfet_required"] == "true" for row in rows.values())
     assert all(row["full_set_flag"] == "true" for row in rows.values())
     assert rows["RF_FX_EURUSD_VOL_1Y"]["reduced_set_flag"] == "false"

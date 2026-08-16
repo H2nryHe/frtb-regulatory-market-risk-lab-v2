@@ -1,0 +1,137 @@
+metadata:
+  config_id: phase6_frozen_synthetic_rfet_observation_plan
+  source_id: BIS_MAR31
+  evaluation_date: "2026-08-14"
+  frozen_before_evaluation: true
+  freeze_date: "2026-08-15"
+  observation_period_start: "2025-08-15"
+  observation_period_end: "2026-08-14"
+  route1_monitoring_frequency: monthly
+  route2_evaluation_frequency: quarterly
+  official_regulatory_real_price_definition: >
+    MAR31.12 defines acceptable real-price observations using actual
+    transactions, verifiable transactions, committed quotes, or qualifying
+    vendor observations.
+  project_synthetic_observation_type: SIMULATED_RFET_OBSERVATION
+  notes: >
+    This plan is deterministic and predeclared for Phase 6 mechanics. The
+    synthetic observation density is not conditioned on reduced-set membership,
+    Phase 5 ES values, or desired NMRF outcomes.
+
+rules:
+  route1_minimum_observations: 24
+  route1_minimum_observations_per_90d_window: 4
+  route1_coverage_window_calendar_days: 90
+  route2_minimum_observations: 100
+  maximum_counted_observations_per_day: 1
+  previous_12m_window_convention: calendar_day_inclusive
+  source_paragraphs:
+    real_price_definition: MAR31.12
+    route_tests: MAR31.13
+    representativeness_mapping: MAR31.15
+    bucketing: MAR31.16-MAR31.18
+    parametric_curve_surface: MAR31.19
+    equity_systematic_factors: MAR31.20-MAR31.21
+    qualitative_principles: MAR31.25-MAR31.26
+
+rfet_buckets:
+  IR_MATURITY_ROW_A:
+    source_paragraph_or_table: MAR31.16 Table 1 row A
+    dimension: maturity_years
+    bucket_source: BIS_MAR31_REGULATORY_BUCKETING
+    buckets:
+      - {bucket_id: RFET_IR_A_1, lower: 0.0, upper: 0.75}
+      - {bucket_id: RFET_IR_A_2, lower: 0.75, upper: 1.5}
+      - {bucket_id: RFET_IR_A_3, lower: 1.5, upper: 4.0}
+      - {bucket_id: RFET_IR_A_4, lower: 4.0, upper: 7.0}
+      - {bucket_id: RFET_IR_A_5, lower: 7.0, upper: 12.0}
+      - {bucket_id: RFET_IR_A_6, lower: 12.0, upper: 18.0}
+      - {bucket_id: RFET_IR_A_7, lower: 18.0, upper: 25.0}
+      - {bucket_id: RFET_IR_A_8, lower: 25.0, upper: 35.0}
+      - {bucket_id: RFET_IR_A_9, lower: 35.0, upper: null}
+  VOL_EXPIRY_ROW_C:
+    source_paragraph_or_table: MAR31.16 Table 1 row C
+    dimension: expiry_years
+    bucket_source: BIS_MAR31_REGULATORY_BUCKETING
+    buckets:
+      - {bucket_id: RFET_VOL_C_1, lower: 0.0, upper: 1.5}
+      - {bucket_id: RFET_VOL_C_2, lower: 1.5, upper: 3.5}
+      - {bucket_id: RFET_VOL_C_3, lower: 3.5, upper: 7.5}
+      - {bucket_id: RFET_VOL_C_4, lower: 7.5, upper: 15.0}
+      - {bucket_id: RFET_VOL_C_5, lower: 15.0, upper: null}
+
+risk_factor_mappings:
+  RF_GIRR_USD_5Y_RATE:
+    broad_risk_class: interest_rate
+    rfet_bucket_approach: regulatory
+    rfet_bucket_family: IR_MATURITY_ROW_A
+    maturity_years: 5.0
+    rfet_bucket_id: RFET_IR_A_4
+    parametric_curve_surface_treatment: DIRECT_SCALAR_MARKET_DATA_SIMPLIFICATION
+    notes: >
+      The selected project factor is treated as a direct 5Y market-data point,
+      not as an abstract curve parameter.
+  RF_EQUITY_SPX_SPOT:
+    broad_risk_class: equity
+    rfet_bucket_approach: direct_scalar_no_extra_bucket
+    rfet_bucket_id: RFET_DIRECT_SCALAR
+    notes: >
+      The selected factor is a systematic equity index spot scalar without a
+      maturity or strike dimension.
+  RF_EQUITY_SPX_VOL_1Y:
+    broad_risk_class: equity
+    rfet_bucket_approach: regulatory
+    rfet_bucket_family: VOL_EXPIRY_ROW_C
+    expiry_years: 1.0
+    rfet_bucket_id: RFET_VOL_C_1
+    notes: >
+      The selected volatility factor has an expiry dimension; the project has
+      no strike dimension for this scalar educational factor.
+  RF_FX_EURUSD_SPOT:
+    broad_risk_class: fx
+    rfet_bucket_approach: direct_scalar_no_extra_bucket
+    rfet_bucket_id: RFET_DIRECT_SCALAR
+    notes: >
+      The selected factor is a direct EUR/USD spot scalar without maturity or
+      strike dimensions.
+  RF_FX_EURUSD_VOL_1Y:
+    broad_risk_class: fx
+    rfet_bucket_approach: regulatory
+    rfet_bucket_family: VOL_EXPIRY_ROW_C
+    expiry_years: 1.0
+    rfet_bucket_id: RFET_VOL_C_1
+    notes: >
+      The selected volatility factor has an expiry dimension; the project has
+      no strike dimension for this scalar educational factor.
+
+observation_patterns:
+  RF_GIRR_USD_5Y_RATE:
+    pattern_id: EVERY_14_DAYS
+    start_date: "2025-08-15"
+    interval_days: 14
+    count: 27
+    expected_mechanics_outcome: ROUTE_1_PASS
+  RF_EQUITY_SPX_SPOT:
+    pattern_id: FIRST_100_CALENDAR_DAYS
+    start_date: "2025-08-15"
+    interval_days: 1
+    count: 100
+    expected_mechanics_outcome: ROUTE_2_PASS_WITH_90D_GAP
+  RF_EQUITY_SPX_VOL_1Y:
+    pattern_id: MONTHLY_12
+    start_date: "2025-08-15"
+    interval_months: 1
+    count: 12
+    expected_mechanics_outcome: INSUFFICIENT_OBSERVATIONS_FAIL
+  RF_FX_EURUSD_SPOT:
+    pattern_id: FIRST_24_CALENDAR_DAYS
+    start_date: "2025-08-15"
+    interval_days: 1
+    count: 24
+    expected_mechanics_outcome: ROUTE1_COUNT_PASS_90D_GAP_FAIL
+  RF_FX_EURUSD_VOL_1Y:
+    pattern_id: EVERY_13_DAYS
+    start_date: "2025-08-15"
+    interval_days: 13
+    count: 29
+    expected_mechanics_outcome: ROUTE_1_PASS

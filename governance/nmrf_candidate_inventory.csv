@@ -1,0 +1,3 @@
+risk_factor_id,broad_risk_class,rfet_mechanics_result,rfet_failure_reason,current_phase5_full_set_flag,current_phase5_reduced_set_flag,candidate_treatment,stress_scenario_capital_status,source_id,notes
+RF_EQUITY_SPX_VOL_1Y,equity,FAIL,INSUFFICIENT_ANNUAL_OBSERVATIONS,true,true,NMRF_CANDIDATE,DEFERRED,BIS_MAR31,Classification only; no NMRF stress-scenario capital calculated in Phase 6
+RF_FX_EURUSD_SPOT,fx,FAIL,RFET_90D_COVERAGE_GAP,true,true,NMRF_CANDIDATE,DEFERRED,BIS_MAR31,Reduced-set conflict requires remediation; no NMRF stress-scenario capital calculated in Phase 6

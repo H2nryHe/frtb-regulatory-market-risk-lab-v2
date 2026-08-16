@@ -1,0 +1,36 @@
+risk_factor_id,rfet_mechanics_result,principle_area,project_evidence,assessment_status,institutional_verification_required,notes
+RF_GIRR_USD_5Y_RATE,PASS,observation_representativeness,synthetic observations explicitly mapped to RF_GIRR_USD_5Y_RATE,PROJECT_MECHANICS_ONLY,true,Synthetic events are not evidence of qualifying transactions quotes or vendor-verified observations
+RF_GIRR_USD_5Y_RATE,PASS,volatility_understatement_risk,synthetic plan does not validate production volatility calibration,NOT_INSTITUTIONALLY_VERIFIABLE,true,Requires actual market-data governance and calibration review
+RF_GIRR_USD_5Y_RATE,PASS,correlation_representation,Phase 5 synthetic covariance is deterministic only,PROJECT_MECHANICS_ONLY,true,Correlation adequacy requires institutional evidence
+RF_GIRR_USD_5Y_RATE,PASS,market_price_representativeness,no actual transaction quote or qualifying vendor evidence is present,NOT_INSTITUTIONALLY_VERIFIABLE,true,RFET pass is necessary but not sufficient
+RF_GIRR_USD_5Y_RATE,PASS,update_frequency,synthetic observations follow frozen plan,PROJECT_MECHANICS_ONLY,true,Production update workflow is not represented
+RF_GIRR_USD_5Y_RATE,PASS,stress_period_suitability,Phase 5 stress data are synthetic,PROJECT_MECHANICS_ONLY,true,Stress-period market evidence is not verified
+RF_GIRR_USD_5Y_RATE,PASS,proxy_use,no proxy is used for this selected scalar factor,PROJECT_MECHANICS_ONLY,true,Institutional validation still required
+RF_EQUITY_SPX_SPOT,PASS,observation_representativeness,synthetic observations explicitly mapped to RF_EQUITY_SPX_SPOT,PROJECT_MECHANICS_ONLY,true,Synthetic events are not evidence of qualifying transactions quotes or vendor-verified observations
+RF_EQUITY_SPX_SPOT,PASS,volatility_understatement_risk,synthetic plan does not validate production volatility calibration,NOT_INSTITUTIONALLY_VERIFIABLE,true,Requires actual market-data governance and calibration review
+RF_EQUITY_SPX_SPOT,PASS,correlation_representation,Phase 5 synthetic covariance is deterministic only,PROJECT_MECHANICS_ONLY,true,Correlation adequacy requires institutional evidence
+RF_EQUITY_SPX_SPOT,PASS,market_price_representativeness,no actual transaction quote or qualifying vendor evidence is present,NOT_INSTITUTIONALLY_VERIFIABLE,true,RFET pass is necessary but not sufficient
+RF_EQUITY_SPX_SPOT,PASS,update_frequency,synthetic observations follow frozen plan,PROJECT_MECHANICS_ONLY,true,Production update workflow is not represented
+RF_EQUITY_SPX_SPOT,PASS,stress_period_suitability,Phase 5 stress data are synthetic,PROJECT_MECHANICS_ONLY,true,Stress-period market evidence is not verified
+RF_EQUITY_SPX_SPOT,PASS,proxy_use,systematic index scalar used directly in selected project scope,PROJECT_MECHANICS_ONLY,true,Institutional validation still required
+RF_EQUITY_SPX_VOL_1Y,FAIL,observation_representativeness,synthetic observations explicitly mapped to RF_EQUITY_SPX_VOL_1Y,PROJECT_MECHANICS_ONLY,true,Synthetic events are not evidence of qualifying transactions quotes or vendor-verified observations
+RF_EQUITY_SPX_VOL_1Y,FAIL,volatility_understatement_risk,synthetic plan does not validate production volatility calibration,NOT_INSTITUTIONALLY_VERIFIABLE,true,Requires actual market-data governance and calibration review
+RF_EQUITY_SPX_VOL_1Y,FAIL,correlation_representation,Phase 5 synthetic covariance is deterministic only,PROJECT_MECHANICS_ONLY,true,Correlation adequacy requires institutional evidence
+RF_EQUITY_SPX_VOL_1Y,FAIL,market_price_representativeness,no actual transaction quote or qualifying vendor evidence is present,NOT_INSTITUTIONALLY_VERIFIABLE,true,RFET mechanics fail before qualitative sufficiency
+RF_EQUITY_SPX_VOL_1Y,FAIL,update_frequency,synthetic observations follow frozen plan,PROJECT_MECHANICS_ONLY,true,Production update workflow is not represented
+RF_EQUITY_SPX_VOL_1Y,FAIL,stress_period_suitability,Phase 5 stress data are synthetic,PROJECT_MECHANICS_ONLY,true,Stress-period market evidence is not verified
+RF_EQUITY_SPX_VOL_1Y,FAIL,proxy_use,no proxy is used for this selected scalar factor,PROJECT_MECHANICS_ONLY,true,Institutional validation still required
+RF_FX_EURUSD_SPOT,FAIL,observation_representativeness,synthetic observations explicitly mapped to RF_FX_EURUSD_SPOT,PROJECT_MECHANICS_ONLY,true,Synthetic events are not evidence of qualifying transactions quotes or vendor-verified observations
+RF_FX_EURUSD_SPOT,FAIL,volatility_understatement_risk,synthetic plan does not validate production volatility calibration,NOT_INSTITUTIONALLY_VERIFIABLE,true,Requires actual market-data governance and calibration review
+RF_FX_EURUSD_SPOT,FAIL,correlation_representation,Phase 5 synthetic covariance is deterministic only,PROJECT_MECHANICS_ONLY,true,Correlation adequacy requires institutional evidence
+RF_FX_EURUSD_SPOT,FAIL,market_price_representativeness,no actual transaction quote or qualifying vendor evidence is present,NOT_INSTITUTIONALLY_VERIFIABLE,true,RFET mechanics fail before qualitative sufficiency
+RF_FX_EURUSD_SPOT,FAIL,update_frequency,synthetic observations follow frozen plan,PROJECT_MECHANICS_ONLY,true,Production update workflow is not represented
+RF_FX_EURUSD_SPOT,FAIL,stress_period_suitability,Phase 5 stress data are synthetic,PROJECT_MECHANICS_ONLY,true,Stress-period market evidence is not verified
+RF_FX_EURUSD_SPOT,FAIL,proxy_use,no proxy is used for this selected scalar factor,PROJECT_MECHANICS_ONLY,true,Institutional validation still required
+RF_FX_EURUSD_VOL_1Y,PASS,observation_representativeness,synthetic observations explicitly mapped to RF_FX_EURUSD_VOL_1Y,PROJECT_MECHANICS_ONLY,true,Synthetic events are not evidence of qualifying transactions quotes or vendor-verified observations
+RF_FX_EURUSD_VOL_1Y,PASS,volatility_understatement_risk,synthetic plan does not validate production volatility calibration,NOT_INSTITUTIONALLY_VERIFIABLE,true,Requires actual market-data governance and calibration review
+RF_FX_EURUSD_VOL_1Y,PASS,correlation_representation,Phase 5 synthetic covariance is deterministic only,PROJECT_MECHANICS_ONLY,true,Correlation adequacy requires institutional evidence
+RF_FX_EURUSD_VOL_1Y,PASS,market_price_representativeness,no actual transaction quote or qualifying vendor evidence is present,NOT_INSTITUTIONALLY_VERIFIABLE,true,RFET pass is necessary but not sufficient
+RF_FX_EURUSD_VOL_1Y,PASS,update_frequency,synthetic observations follow frozen plan,PROJECT_MECHANICS_ONLY,true,Production update workflow is not represented
+RF_FX_EURUSD_VOL_1Y,PASS,stress_period_suitability,Phase 5 stress data are synthetic,PROJECT_MECHANICS_ONLY,true,Stress-period market evidence is not verified
+RF_FX_EURUSD_VOL_1Y,PASS,proxy_use,no proxy is used for this selected scalar factor,PROJECT_MECHANICS_ONLY,true,Institutional validation still required
