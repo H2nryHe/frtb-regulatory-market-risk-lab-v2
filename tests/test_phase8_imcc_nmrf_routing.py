@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from repo_scan import format_matches, scan_public_text
 
 from frtb_lab.ima.backtesting import threshold_status
 from frtb_lab.ima.capital_routing import calculate_phase8_capital_routing
@@ -471,23 +472,13 @@ def test_private_files_local_paths_and_claim_scan_are_controlled() -> None:
     assert tracked.stdout == ""
 
     leaked_path = "/Users/" + "linruihe/"
-    path_scan = subprocess.run(
-        [
-            "rg",
-            "-n",
-            leaked_path,
-            ".",
-            "-g",
-            "!PROJECT_FRTB_V2_SPEC.md",
-            "-g",
-            "!FRTB_V2_STATUS.md",
-        ],
-        cwd=REPO_ROOT,
-        text=True,
-        capture_output=True,
-        check=False,
+    excluded = (
+        "PROJECT_FRTB_V2_SPEC.md",
+        "FRTB_V2_STATUS.md",
+        "local_frtb_v2_baseline/**",
     )
-    assert path_scan.returncode == 1
+    path_matches = scan_public_text(REPO_ROOT, leaked_path, excluded_globs=excluded)
+    assert path_matches == []
 
     prohibited = [
         "regulatory " + "compliant",
@@ -502,48 +493,22 @@ def test_private_files_local_paths_and_claim_scan_are_controlled() -> None:
         "production " + "capital",
     ]
     for phrase in prohibited:
-        scan = subprocess.run(
-            [
-                "rg",
-                "-n",
-                "-i",
-                phrase,
-                ".",
-                "-g",
-                "!PROJECT_FRTB_V2_SPEC.md",
-                "-g",
-                "!FRTB_V2_STATUS.md",
-                "-g",
-                "!local_frtb_v2_baseline/**",
-            ],
-            cwd=REPO_ROOT,
-            text=True,
-            capture_output=True,
-            check=False,
+        matches = scan_public_text(
+            REPO_ROOT,
+            phrase,
+            case_sensitive=False,
+            excluded_globs=excluded,
         )
-        assert scan.returncode == 1, scan.stdout
+        assert matches == [], format_matches(matches, REPO_ROOT)
 
-    total_scan = subprocess.run(
-        [
-            "rg",
-            "-n",
-            "-i",
-            "total " + "FRTB capital",
-            ".",
-            "-g",
-            "!PROJECT_FRTB_V2_SPEC.md",
-            "-g",
-            "!FRTB_V2_STATUS.md",
-            "-g",
-            "!local_frtb_v2_baseline/**",
-        ],
-        cwd=REPO_ROOT,
-        text=True,
-        capture_output=True,
-        check=False,
+    total_matches = scan_public_text(
+        REPO_ROOT,
+        "total " + "FRTB capital",
+        case_sensitive=False,
+        excluded_globs=excluded,
     )
-    assert total_scan.returncode == 0
+    assert total_matches
     assert all(
         "Why No Final Total FRTB Capital Is Reported" in line
-        for line in total_scan.stdout.splitlines()
+        for _, _, line in total_matches
     )

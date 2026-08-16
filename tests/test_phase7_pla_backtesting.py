@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from repo_scan import format_matches, scan_public_text
 
 from frtb_lab.ima.backtesting import (
     backtesting_sample,
@@ -418,29 +419,15 @@ def test_private_files_and_positive_claim_scan_remain_clean() -> None:
     )
     assert tracked.stdout == ""
     leaked_path = "/Users/" + "linruihe/"
-    path_scan = subprocess.run(
-        [
-            "rg",
-            "-n",
-            leaked_path,
-            ".",
-            "-g",
-            "!__pycache__",
-            "-g",
-            "!*.pyc",
-            "-g",
-            "!PROJECT_FRTB_V2_SPEC.md",
-            "-g",
-            "!FRTB_V2_STATUS.md",
-            "-g",
-            "!local_frtb_v2_baseline/**",
-        ],
-        cwd=REPO_ROOT,
-        text=True,
-        capture_output=True,
-        check=False,
+    excluded = (
+        "__pycache__/**",
+        "*.pyc",
+        "PROJECT_FRTB_V2_SPEC.md",
+        "FRTB_V2_STATUS.md",
+        "local_frtb_v2_baseline/**",
     )
-    assert path_scan.returncode == 1
+    path_matches = scan_public_text(REPO_ROOT, leaked_path, excluded_globs=excluded)
+    assert path_matches == []
     prohibited = [
         "regulatory " + "compliant",
         "Basel " + "compliant",
@@ -449,23 +436,10 @@ def test_private_files_and_positive_claim_scan_remain_clean() -> None:
         "portfolio regulatory " + "capital",
     ]
     for phrase in prohibited:
-        scan = subprocess.run(
-            [
-                "rg",
-                "-n",
-                "-i",
-                phrase,
-                ".",
-                "-g",
-                "!PROJECT_FRTB_V2_SPEC.md",
-                "-g",
-                "!FRTB_V2_STATUS.md",
-                "-g",
-                "!local_frtb_v2_baseline/**",
-            ],
-            cwd=REPO_ROOT,
-            text=True,
-            capture_output=True,
-            check=False,
+        matches = scan_public_text(
+            REPO_ROOT,
+            phrase,
+            case_sensitive=False,
+            excluded_globs=excluded,
         )
-        assert scan.returncode == 1
+        assert matches == [], format_matches(matches, REPO_ROOT)

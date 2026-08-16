@@ -40,3 +40,6 @@ production market data or U.S. proposal calculation engine is included.
 
 The project is intended to run from a clean source tree with editable install,
 Ruff, pytest and `python -m frtb_lab.release_validation`.
+
+- Fixed clean-checkout CI reproducibility by removing test dependence on an
+  undeclared local `rg` binary.

@@ -171,6 +171,13 @@ def test_ci_workflow_runs_required_release_commands() -> None:
     assert all(version in workflow for version in ["3.10", "3.11", "3.12"])
 
 
+def test_tests_do_not_shell_out_to_undeclared_ripgrep_binary() -> None:
+    ripgrep_literal = '"' + chr(114) + chr(103) + '"'
+    for path in (REPO_ROOT / "tests").glob("test_*.py"):
+        text = path.read_text()
+        assert ripgrep_literal not in text, path
+
+
 def test_public_release_has_no_local_paths_or_obvious_credential_material() -> None:
     local_path = "/Users/" + "linruihe/"
     sensitive_patterns = [
