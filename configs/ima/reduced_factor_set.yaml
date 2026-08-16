@@ -1,0 +1,27 @@
+metadata:
+  config_id: phase5_provisional_reduced_factor_set
+  source_id: BIS_MAR33
+  status: PENDING_RFET_VALIDATION
+  selection_date: "2026-08-15"
+  notes: >
+    Provisional reduced factor set for Phase 5 mechanics only. RFET and
+    regulatory-valid reduced-set determination are deferred to Phase 6.
+
+reduced_factor_ids:
+  - RF_GIRR_USD_5Y_RATE
+  - RF_EQUITY_SPX_SPOT
+  - RF_EQUITY_SPX_VOL_1Y
+  - RF_FX_EURUSD_SPOT
+
+rationale:
+  RF_GIRR_USD_5Y_RATE: Dominant selected rates driver for bond and swap P&L.
+  RF_EQUITY_SPX_SPOT: Dominant selected equity index and equity option driver.
+  RF_EQUITY_SPX_VOL_1Y: Selected equity option volatility driver with 20-day LH.
+  RF_FX_EURUSD_SPOT: Dominant selected FX forward and FX option driver.
+  RF_FX_EURUSD_VOL_1Y: Excluded to keep the reduced set strict; retained in full set.
+
+coverage_diagnostic:
+  source_paragraph_or_table: MAR33.9
+  minimum_average_ratio: 0.75
+  evaluation_weeks: 12
+  status: PENDING_RFET_VALIDATION

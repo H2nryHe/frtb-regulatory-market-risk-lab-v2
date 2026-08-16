@@ -3,7 +3,7 @@
 Scope document for the current phase gate. It records completed source
 governance, Phase 1 taxonomy/mapping work, selected Phase 2 raw/weighted
 sensitivity preparation, selected Phase 3 SBM aggregation, and selected Phase 4
-DRC/RRAO integration.
+DRC/RRAO integration, and Phase 5 provisional selected IMA ES mechanics.
 
 | Basel chapter / paragraph area | Concept | Planned project phase | Implementation scope | Explicitly omitted scope | Source ID |
 | --- | --- | --- | --- | --- | --- |
@@ -14,7 +14,7 @@ DRC/RRAO integration.
 | MAR30.1-MAR30.18 | Internal models approach governance | Phases 5-7 | Planned documentation and diagnostics for selected IMA workflow concepts | Supervisory model application workflow and bank approval processes | BIS_MAR30 |
 | MAR31.1-MAR31.26 | Model requirements and RFET | Phase 6 | Planned RFET and modellability classification for synthetic real-price observations | Full NMRF stressed expected-shortfall capital engine | BIS_MAR31 |
 | MAR32.1-MAR32.45 | Backtesting and PLA | Phase 7 | Planned PLA diagnostics and regulatory VaR backtesting for synthetic desks | Production desk governance and regulatory filing | BIS_MAR32 |
-| MAR33.1-MAR33.17 | ES and liquidity horizons | Phase 5 | Planned selected IMA ES and liquidity-horizon mechanics | Full bank-wide IMCC implementation and complete SES engine | BIS_MAR33 |
+| MAR33.1-MAR33.17 | ES and liquidity horizons | Phase 5 | Implemented provisional selected-factor IMA ES mechanics, direct overlapping 10-day shocks, selected liquidity-horizon aggregation and reduced-set stress calibration | RFET, NMRF capital, PLA, backtesting, desk eligibility, MAR33.15 rho weighting, IMA default risk model, final IMCC aggregation and complete SES engine | BIS_MAR33 |
 | MAR33.40-MAR33.46 | Model-ineligible desks and aggregation context | Phase 7 documentation; Phase 8 case study | Planned fallback-to-SA diagnostic interpretation for controlled desks | Single bank-wide total capital claim | BIS_MAR33 |
 | MAR20.1-MAR20.5 and MAR21 selected taxonomy paragraphs | Trading-book scope representation | Phase 1 | Implemented deterministic synthetic instrument-to-desk scope metadata and validation controls | Legal entity scope, supervisory reporting and production trading-book governance | BIS_MAR20; BIS_MAR21 |
 | MAR21.8, MAR21.12, MAR21.14, MAR21.19, MAR21.21, MAR21.24-MAR21.28 | Instrument taxonomy and risk-factor mapping | Phase 1 | Implemented selected GIRR, Equity and FX taxonomy records needed for later phases | Full Basel risk-factor universe and risk-weight tables | BIS_MAR21 |
@@ -34,7 +34,11 @@ DRC/RRAO integration.
 | MAR22.1-MAR22.26 | Selected non-securitisation DRC | Phase 4 | Implemented selected corporate non-securitisation DRC with gross JTD, maturity scaling, same-obligor netting, seniority rules, HBR, credit-quality risk weights, bucket capital and no cross-bucket diversification | Securitisation DRC, CTP, tranche treatment and index decomposition | BIS_MAR22 |
 | MAR23.1-MAR23.8 | Selected RRAO | Phase 4 | Implemented selected RRAO classification and gross-notional calculation for barrier other-residual risk plus test-only exotic-underlying and exclusion cases | Exhaustive residual-risk product taxonomy and pricing of exotic cases | BIS_MAR23 |
 | MAR20.1-MAR20.5; MAR21.7; MAR22.26; MAR23.8 | Selected-scope Standardised Approach integration | Phase 4 | Implemented selected-scope SA total as binding selected SBM plus non-securitisation DRC plus RRAO | Complete SA, market-risk RWA reporting, IMA ES, RFET, PLA and backtesting | BIS_MAR20; BIS_MAR21; BIS_MAR22; BIS_MAR23 |
+| MAR33.1-MAR33.6 | Selected current and stressed ES calibration | Phase 5 | Implemented 97.5% empirical ES over synthetic current observations, provisional reduced-set stress-window search and stress scaling | Final IMA capital approval workflow, NMRF capital and final IMCC aggregation | BIS_MAR33 |
+| MAR33.9 | Reduced factor set diagnostic | Phase 5 | Implemented provisional reduced/full ES coverage diagnostic over 12 weekly windows using synthetic factors only | RFET-derived modellability decisions and supervisory reduced-set validation | BIS_MAR33 |
+| MAR33.12 Table 2 | Selected liquidity horizons | Phase 5 | Implemented selected USD rate, large-cap equity spot, large-cap equity volatility, specified-pair EUR/USD spot and FX volatility mappings | Complete risk-factor universe and discretionary horizon increases | BIS_MAR33 |
 
 Explicit out-of-scope items for this project version: securitisation DRC, CTP,
 full seven-risk-class SBM, full NMRF SES capital engine, full bank-wide IMCC
-implementation, and regulatory reporting or filing.
+implementation, RFET, PLA, backtesting, desk eligibility, IMA default risk model
+mechanics, and regulatory reporting or filing.

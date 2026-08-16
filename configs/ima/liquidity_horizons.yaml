@@ -1,0 +1,46 @@
+metadata:
+  config_id: phase5_selected_liquidity_horizons
+  source_id: BIS_MAR33
+  source_url: https://www.bis.org/basel_framework/chapter/MAR/33.htm
+  selected_scope_only: true
+  notes: >
+    Selected MAR33.12 liquidity-horizon mappings required by the Phase 5
+    candidate factor set. No discretionary horizon increase is applied.
+
+base_horizon_days: 10
+horizon_grid_days: [10, 20, 40, 60, 120]
+
+selected_mappings:
+  RF_GIRR_USD_5Y_RATE:
+    broad_risk_class: interest_rate
+    category: specified_currency_interest_rate
+    liquidity_horizon_days: 10
+    source_paragraph_or_table: MAR33.12 Table 2
+  RF_EQUITY_SPX_SPOT:
+    broad_risk_class: equity
+    category: large_cap_equity_spot
+    liquidity_horizon_days: 10
+    source_paragraph_or_table: MAR33.12 Table 2
+  RF_EQUITY_SPX_VOL_1Y:
+    broad_risk_class: equity
+    category: large_cap_equity_volatility
+    liquidity_horizon_days: 20
+    source_paragraph_or_table: MAR33.12 Table 2
+  RF_FX_EURUSD_SPOT:
+    broad_risk_class: fx
+    category: specified_currency_pair_fx_spot
+    liquidity_horizon_days: 10
+    source_paragraph_or_table: MAR33.12 Table 2
+    notes: EUR/USD treated as a selected specified currency pair in Phase 5.
+  RF_FX_EURUSD_VOL_1Y:
+    broad_risk_class: fx
+    category: fx_volatility
+    liquidity_horizon_days: 40
+    source_paragraph_or_table: MAR33.12 Table 2
+
+test_only_horizons:
+  TEST_LH_10: 10
+  TEST_LH_20: 20
+  TEST_LH_40: 40
+  TEST_LH_60: 60
+  TEST_LH_120: 120

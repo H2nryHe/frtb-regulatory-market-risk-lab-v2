@@ -398,9 +398,11 @@ def test_phase4_parameter_provenance_is_complete() -> None:
 
 def test_no_phase5_or_out_of_scope_engines_exist() -> None:
     forbidden = [
-        REPO_ROOT / "src" / "frtb_lab" / "ima",
         REPO_ROOT / "src" / "frtb_lab" / "sa" / "securitisation_drc.py",
         REPO_ROOT / "src" / "frtb_lab" / "sa" / "ctp.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "imcc.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "nmrf.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "default_risk.py",
         REPO_ROOT / "src" / "frtb_lab" / "rfet.py",
         REPO_ROOT / "src" / "frtb_lab" / "pla.py",
         REPO_ROOT / "src" / "frtb_lab" / "backtesting.py",

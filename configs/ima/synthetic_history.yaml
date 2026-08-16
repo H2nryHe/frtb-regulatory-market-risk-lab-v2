@@ -1,0 +1,71 @@
+metadata:
+  config_id: phase5_synthetic_ima_history
+  synthetic: true
+  source_id: BIS_MAR33
+  fixed_random_seed: 3305
+  start_date: "2007-01-02"
+  end_date: "2026-08-14"
+  business_day_rule: weekdays_only
+  overlapping_10_day_observations: true
+  stress_window_observations: 252
+  current_period_start: "2025-08-15"
+  current_period_end: "2026-08-14"
+  notes: >
+    Synthetic deterministic risk-factor history for selected IMA ES mechanics.
+    Calendar dates are used only to exercise regulatory window mechanics; values
+    are not actual historical market observations.
+
+risk_factors:
+  RF_GIRR_USD_5Y_RATE:
+    broad_risk_class: interest_rate
+    initial_value: 0.034
+    shock_convention: arithmetic_decimal_rate_change
+    daily_sigma: 0.00045
+  RF_EQUITY_SPX_SPOT:
+    broad_risk_class: equity
+    initial_value: 5000.0
+    shock_convention: log_price_change
+    daily_sigma: 0.012
+  RF_EQUITY_SPX_VOL_1Y:
+    broad_risk_class: equity
+    initial_value: 0.20
+    shock_convention: arithmetic_volatility_change
+    daily_sigma: 0.003
+  RF_FX_EURUSD_SPOT:
+    broad_risk_class: fx
+    initial_value: 1.10
+    shock_convention: log_price_change
+    daily_sigma: 0.006
+  RF_FX_EURUSD_VOL_1Y:
+    broad_risk_class: fx
+    initial_value: 0.12
+    shock_convention: arithmetic_volatility_change
+    daily_sigma: 0.002
+
+correlation_matrix:
+  factor_order:
+    - RF_GIRR_USD_5Y_RATE
+    - RF_EQUITY_SPX_SPOT
+    - RF_EQUITY_SPX_VOL_1Y
+    - RF_FX_EURUSD_SPOT
+    - RF_FX_EURUSD_VOL_1Y
+  values:
+    - [1.00, -0.15, 0.05, -0.05, 0.02]
+    - [-0.15, 1.00, -0.45, 0.25, -0.10]
+    - [0.05, -0.45, 1.00, -0.05, 0.20]
+    - [-0.05, 0.25, -0.05, 1.00, -0.35]
+    - [0.02, -0.10, 0.20, -0.35, 1.00]
+
+regimes:
+  - regime_id: ordinary
+    start_date: "2007-01-02"
+    end_date: "2026-08-14"
+    volatility_multiplier: 1.0
+  - regime_id: synthetic_stress_regime_a
+    start_date: "2008-09-01"
+    end_date: "2009-08-31"
+    volatility_multiplier: 4.0
+  - regime_id: synthetic_stress_regime_b
+    start_date: "2020-03-02"
+    end_date: "2021-03-01"
+    volatility_multiplier: 3.0

@@ -1,0 +1,18 @@
+instrument_id,pricing_risk_input,candidate_ima_risk_factor,included_in_full_set,included_in_reduced_set,coverage_status,reason,phase6_dependency,notes
+SYN_USD_GOVT_5Y,USD 5Y risk-free zero rate,RF_GIRR_USD_5Y_RATE,true,true,INCLUDED,Current-position revaluation uses selected USD 5Y rate shock,RFET pending,Other curve-shape factors are outside selected scope
+SYN_USD_IRS_5Y,USD 5Y risk-free zero rate,RF_GIRR_USD_5Y_RATE,true,true,INCLUDED,Current-position revaluation uses selected USD 5Y rate shock,RFET pending,Other curve-shape factors are outside selected scope
+SYN_EQ_INDEX,equity spot,RF_EQUITY_SPX_SPOT,true,true,INCLUDED,Index value revalued under spot shock,RFET pending,Repo is not a pricing input in project function
+SYN_EQ_CALL,equity spot,RF_EQUITY_SPX_SPOT,true,true,INCLUDED,Option fully revalued under spot shock,RFET pending,
+SYN_EQ_CALL,equity implied volatility,RF_EQUITY_SPX_VOL_1Y,true,true,INCLUDED,Option fully revalued under volatility shock,RFET pending,
+SYN_EQ_CALL,USD risk-free rate,,false,false,DEFERRED,Option rate sensitivity is outside selected Phase 5 candidate set,RFET pending,Rate held constant except selected 5Y GIRR factor for rates instruments
+SYN_EQ_CALL,dividend yield,,false,false,DEFERRED,Dividend/carry sensitivity outside selected candidate set,RFET pending,Held constant
+SYN_EURUSD_FWD,EUR/USD spot,RF_FX_EURUSD_SPOT,true,true,INCLUDED,Forward revalued under FX spot shock,RFET pending,Domestic and foreign rates held constant
+SYN_EURUSD_FWD,USD discount rate,,false,false,DEFERRED,FX rate sensitivity outside selected candidate set,RFET pending,Held constant
+SYN_EURUSD_FWD,EUR discount rate,,false,false,DEFERRED,FX rate sensitivity outside selected candidate set,RFET pending,Held constant
+SYN_EURUSD_CALL,EUR/USD spot,RF_FX_EURUSD_SPOT,true,true,INCLUDED,Option fully revalued under FX spot shock,RFET pending,
+SYN_EURUSD_CALL,EUR/USD implied volatility,RF_FX_EURUSD_VOL_1Y,true,false,INCLUDED,Option fully revalued under volatility shock in full set,RFET pending,Excluded from provisional reduced set
+SYN_EURUSD_CALL,USD discount rate,,false,false,DEFERRED,FX option rate sensitivity outside selected candidate set,RFET pending,Held constant
+SYN_EURUSD_CALL,EUR discount rate,,false,false,DEFERRED,FX option rate sensitivity outside selected candidate set,RFET pending,Held constant
+SYN_CORP_BOND,issuer credit spread,,false,false,OUT_OF_SELECTED_SCOPE,No defensible Phase 5 spread P&L mapping implemented,RFET pending,Phase 4 DRC remains separate
+SYN_EQ_BARRIER,equity spot,,false,false,OUT_OF_SELECTED_SCOPE,Barrier pricing not implemented for selected IMA P&L,RFET pending,RRAO remains additive
+SYN_EQ_BARRIER,equity implied volatility,,false,false,OUT_OF_SELECTED_SCOPE,Barrier pricing not implemented for selected IMA P&L,RFET pending,RRAO remains additive

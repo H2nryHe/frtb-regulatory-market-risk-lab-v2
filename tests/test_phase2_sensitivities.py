@@ -324,15 +324,18 @@ def test_no_secondary_domain_parameter_sources() -> None:
             assert row["source_paragraph_or_table"].startswith("MAR21")
 
 
-def test_no_drc_rrao_ima_or_generic_capital_artifacts_exist() -> None:
+def test_no_out_of_scope_drc_rrao_or_generic_capital_artifacts_exist() -> None:
     forbidden_paths = [
         REPO_ROOT / "src" / "frtb_lab" / "sa" / "securitisation_drc.py",
         REPO_ROOT / "src" / "frtb_lab" / "sa" / "ctp.py",
         REPO_ROOT / "src" / "frtb_lab" / "sa" / "ima",
-        REPO_ROOT / "src" / "frtb_lab" / "ima",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "imcc.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "nmrf.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "default_risk.py",
         REPO_ROOT / "data" / "artifacts" / "sbm_capital.csv",
         REPO_ROOT / "data" / "artifacts" / "drc_capital.csv",
         REPO_ROOT / "data" / "artifacts" / "rrao_capital.csv",
+        REPO_ROOT / "data" / "artifacts" / "ima_capital.csv",
     ]
     assert not any(path.exists() for path in forbidden_paths)
 

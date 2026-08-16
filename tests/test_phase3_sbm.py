@@ -353,11 +353,13 @@ def test_implemented_correlation_and_curvature_parameters_have_provenance() -> N
         assert row["source_paragraph_or_table"].startswith("MAR21")
 
 
-def test_no_drc_rrao_or_ima_calculations_exist() -> None:
+def test_no_out_of_scope_drc_rrao_or_ima_calculations_exist() -> None:
     forbidden = [
         REPO_ROOT / "src" / "frtb_lab" / "sa" / "securitisation_drc.py",
         REPO_ROOT / "src" / "frtb_lab" / "sa" / "ctp.py",
-        REPO_ROOT / "src" / "frtb_lab" / "ima",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "imcc.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "nmrf.py",
+        REPO_ROOT / "src" / "frtb_lab" / "ima" / "default_risk.py",
         REPO_ROOT / "data" / "artifacts" / "drc_capital.csv",
         REPO_ROOT / "data" / "artifacts" / "rrao_capital.csv",
         REPO_ROOT / "data" / "artifacts" / "ima_capital.csv",
